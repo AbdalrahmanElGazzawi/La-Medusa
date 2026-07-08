@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Member Account — La Medusa · The Aerialist Shala</title>
+<meta name="description" content="Sign in to La Medusa to see the live class schedule, member announcements and retreat dates first.">
+<link rel="canonical" href="https://lamedusadahab.com/account/">
+<link rel="alternate" hreflang="en" href="https://lamedusadahab.com/account/">
+<link rel="alternate" hreflang="ar" href="https://lamedusadahab.com/ar/account/">
+<link rel="alternate" hreflang="x-default" href="https://lamedusadahab.com/account/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Member Account — La Medusa · The Aerialist Shala">
+<meta property="og:description" content="Sign in to La Medusa to see the live class schedule, member announcements and retreat dates first.">
+<meta property="og:image" content="https://lamedusadahab.com/assets/img/og.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/assets/img/logo.png">
+<link rel="apple-touch-icon" href="/assets/img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=Cormorant+Garamond:ital,wght@1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/main.css">
+
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="nav-wrap">
+    <a class="brand" href="/" aria-label="La Medusa — The Aerialist Shala">
+      <img src="/assets/img/logo.png" alt="" width="54" height="54">
+      <span class="brand-name"><span class="bn-1">La Medusa</span><span class="bn-2">The Aerialist Shala</span></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation"><ul><li><a href="/">Home</a></li><li><a href="/classes/">Classes</a></li><li><a href="/teacher-training/">Teacher training</a></li><li><a href="/retreats/">Retreats</a></li><li><a href="/teachers/">Teachers</a></li><li><a href="/hammocks/">Hammocks</a></li><li><a href="/accessibility/">Every body flies</a></li><li><a href="/contact/">Contact</a></li></ul></nav>
+    <div style="display:flex;align-items:center;gap:10px">
+      <a class="account-link" href="/account/" aria-label="My account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-3.5 4.5-5 8-5s6.5 1.5 8 5"/></svg></a>
+      <a class="lang-switch" href="/ar/account/" lang="ar" dir="rtl">عربي</a>
+      <button class="nav-toggle" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<main id="main">
+
+<section class="page-hero">
+  <div class="container">
+    <span class="sec-kicker">Members</span>
+    <h1>Your <span class="line-accent">shala account</span></h1>
+    <p class="hero-alt-lang" lang="ar" dir="rtl">حسابك في الشالا</p>
+    <p class="ph-lead">Sign in to see the live schedule, member announcements and retreat dates before anyone else.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div id="auth-view">
+      <div class="two-col" style="max-width:940px;margin:0 auto">
+        <div class="auth-card">
+          <h3>Sign in</h3>
+          <form id="form-signin" class="mt-1">
+            <div class="field"><label for="si-email">Email</label><input id="si-email" type="email" autocomplete="email" required></div>
+            <div class="field"><label for="si-pw">Password</label><input id="si-pw" type="password" autocomplete="current-password" required></div>
+            <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+            <div id="signin-msg" class="auth-msg" role="status"></div>
+          </form>
+          <p class="auth-alt"><button id="btn-reset" class="btn btn-ghost btn-sm" type="button">Forgot password?</button></p>
+        </div>
+        <div class="auth-card">
+          <h3>New here? Create an account</h3>
+          <form id="form-signup" class="mt-1">
+            <div class="field"><label for="su-name">Your name</label><input id="su-name" type="text" autocomplete="name" required></div>
+            <div class="field"><label for="su-email">Email</label><input id="su-email" type="email" autocomplete="email" required></div>
+            <div class="field"><label for="su-pw">Password (min 6 characters)</label><input id="su-pw" type="password" autocomplete="new-password" required></div>
+            <button class="btn btn-sea btn-block" type="submit">Create account</button>
+            <div id="signup-msg" class="auth-msg" role="status"></div>
+          </form>
+        </div>
+      </div>
+      <p class="center mt-3" style="color:var(--ink-faint);font-size:14px">Accounts are free — booking still happens on WhatsApp for now.</p>
+    </div>
+
+    <div id="member-view" style="display:none">
+      <div class="center">
+        <p id="member-hello" class="sec-lead"></p>
+        <p class="mt-1">
+          <a id="admin-link" class="btn btn-primary btn-sm" href="/admin/" style="display:none">Studio management panel</a>
+          <button id="btn-signout" class="btn btn-ghost btn-sm" type="button">Sign out</button>
+        </p>
+      </div>
+      <div class="two-col mt-3">
+        <div>
+          <h3>This week at the shala</h3>
+          <div class="schedule-wrap mt-1">
+            <table class="schedule">
+              <thead><tr><th scope="col">Day</th><th scope="col">Class</th><th scope="col">Time</th></tr></thead>
+              <tbody data-live-schedule><tr><td colspan="3">Loading schedule…</td></tr></tbody>
+            </table>
+          </div>
+          <p class="mt-2"><a class="btn btn-primary btn-sm" data-wa="classes" href="#">Book on WhatsApp</a></p>
+        </div>
+        <div>
+          <h3>News &amp; events</h3>
+          <ul id="member-events" class="member-list mt-1"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+<div class="container">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <span class="brand-name"><span class="bn-1" style="font-size:24px">La Medusa</span><span class="bn-2">The Aerialist Shala</span></span>
+      <p>An aerial yoga studio in Assala, Dahab — where the Sinai mountains meet the Red Sea.</p>
+      <p class="footer-tagline">Move beautifully. Feel freely. Fly gracefully.</p>
+    </div>
+    <div><h4>Studio</h4><ul><li><a href="/classes/">Classes</a></li><li><a href="/teacher-training/">Teacher training</a></li><li><a href="/retreats/">Retreats</a></li><li><a href="/teachers/">Teachers</a></li><li><a href="/hammocks/">Hammocks</a></li><li><a href="/accessibility/">Every body flies</a></li><li><a href="/contact/">Contact</a></li></ul></div>
+    <div><h4>Follow</h4><ul>
+      <li><a href="https://www.instagram.com/theaerialistshala/" target="_blank" rel="noopener">@theaerialistshala</a></li>
+      <li><a href="https://www.instagram.com/yogawith_mona/" target="_blank" rel="noopener">@yogawith_mona</a></li>
+      <li><a href="https://www.instagram.com/profoundlytrue/" target="_blank" rel="noopener">@profoundlytrue</a></li>
+      <li><a href="https://www.instagram.com/hammocksbymonashafei/" target="_blank" rel="noopener">@hammocksbymonashafei</a></li>
+    </ul></div>
+    <div><h4>Book</h4><ul>
+      <li><a data-wa="general" href="#">WhatsApp +20 115 616 6225</a></li>
+      <li><a href="https://www.instagram.com/theaerialistshala/" target="_blank" rel="noopener">DM "AERIAL" on Instagram</a></li>
+      <li>Assala, Dahab, South Sinai</li>
+    </ul></div>
+  </div>
+  <div class="footer-bottom"><span>© 2026 La Medusa · The Aerialist Shala — Dahab, Egypt</span><span>Every body flies.</span></div>
+</div>
+</footer>
+<a class="wa-float" data-wa="general" href="#" aria-label="Chat with us on WhatsApp"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.02c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.03 8.03 0 0 1-1.23-4.25c0-4.43 3.6-8.03 8.03-8.03 4.43 0 8.03 3.6 8.03 8.03s-3.61 8.11-8.04 8.11zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg></a>
+<script src="/assets/js/config.js"></script>
+<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/lm-backend.js" defer></script>
+<script src="/assets/js/account.js" defer></script>
+</body>
+</html>

@@ -16,8 +16,8 @@ window.LM_CONFIG = {
 
   /* Phase 2 slots (booking, payments, inquiry forms) */
   bookingEnabled: false,
-  supabaseUrl: "",      /* e.g. "https://qpvykmqepyugqtbxzqnq.supabase.co" */
-  supabaseAnonKey: "",
+  supabaseUrl: "https://qpvykmqepyugqtbxzqnq.supabase.co",
+  supabaseAnonKey: "sb_publishable_ReyYpPnyfXazqdTa7wClLQ_dOF4JrEo",
 
   /* Prefilled WhatsApp messages per CTA context (EN + AR) */
   waMessages: {

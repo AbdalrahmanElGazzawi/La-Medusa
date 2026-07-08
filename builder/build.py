@@ -16,13 +16,19 @@ def write(path, content):
 
 def build():
     for slug, meta in pages_en.PAGES.items():
-        html = page(slug, "en", meta["title"], meta["desc"], meta["body"], meta.get("jsonld", ""))
+        html = page(slug, "en", meta["title"], meta["desc"], meta["body"], meta.get("jsonld", ""),
+                    extra_scripts=meta.get("extra_scripts", ""), noindex=(slug == "account/"))
         write(os.path.join(slug, "index.html") if slug else "index.html", html)
     for slug, meta in pages_ar.PAGES.items():
-        html = page(slug, "ar", meta["title"], meta["desc"], meta["body"], meta.get("jsonld", ""))
+        html = page(slug, "ar", meta["title"], meta["desc"], meta["body"], meta.get("jsonld", ""),
+                    extra_scripts=meta.get("extra_scripts", ""), noindex=(slug == "account/"))
         write(os.path.join("ar", slug, "index.html") if slug else "ar/index.html", html)
 
-    slugs = list(pages_en.PAGES.keys())
+    admin_html = page("admin/", "en", "Studio Management — La Medusa", "Admin panel.",
+                      pages_en.ADMIN_BODY, extra_scripts='<script src="/assets/js/admin.js" defer></script>', noindex=True)
+    write("admin/index.html", admin_html)
+
+    slugs = [s for s in pages_en.PAGES.keys() if s != "account/"]
     urls = ""
     for s in slugs:
         urls += f"<url><loc>{DOMAIN}/{s}</loc><xhtml:link rel=\"alternate\" hreflang=\"ar\" href=\"{DOMAIN}/ar/{s}\"/><xhtml:link rel=\"alternate\" hreflang=\"en\" href=\"{DOMAIN}/{s}\"/></url>\n"

@@ -15,13 +15,10 @@ CLASSES_AR = [
 ]
 
 SCHEDULE_AR = [
-    ("الاثنين", "تدفق هوائي · ٩:٠٠ ص", "مدخل إلى السيلك · ٦:٠٠ م"),
-    ("الثلاثاء", "مرونة الأرجوحة · ٩:٠٠ ص", "فينياسا (سجادة) · ٦:٠٠ م"),
-    ("الأربعاء", "—", "أطفال ويافعون · ٤:٣٠ م<br>هوائي استرخائي · ٦:٣٠ م"),
-    ("الخميس", "تدفق هوائي · ٩:٠٠ ص", "سيلك متقدم · ٦:٠٠ م"),
-    ("الجمعة", "سلسلة الهوب · ١٠:٠٠ ص", "—"),
-    ("السبت", "مدخل إلى السيلك · ٩:٠٠ ص", "هوائي علاجي · ٦:٠٠ م"),
-    ("الأحد", "يوم راحة المجتمع", "—"),
+    ("الأحد", "يين هوائي", "٧:٠٠ مساءً · كل المستويات"),
+    ("الثلاثاء", "هوائي ١٠١", "٧:٠٠ مساءً · مناسب للمبتدئات"),
+    ("الخميس", "يين هوائي", "٧:٠٠ مساءً · كل المستويات"),
+    ("الجمعة", "هوائي ١٠١", "٩:٠٠ صباحاً · مناسب للمبتدئات"),
 ]
 
 def class_cards(items):
@@ -58,6 +55,7 @@ HOME_BODY = f'''
   </div>
   <div class="horizon">{art_horizon("رسم لممارِسة يوغا هوائية معلّقة فوق بحر دهب وصحرائها")}</div>
 </section>
+<div data-live-news class="container"></div>
 
 <section class="section">
   <div class="container">
@@ -69,7 +67,7 @@ HOME_BODY = f'''
         <p class="sec-lead">وتنتهي كل حصة بالطريقة نفسها: ملفوفةً في الأرجوحة، تتمايلين كقنديل بحرٍ في ماءٍ ساكن.</p>
         <a class="btn btn-ghost mt-2" href="/ar/teachers/">تعرّفي على معلّماتك</a>
       </div>
-      <div class="photo-slot reveal" style="min-height:380px" role="img" aria-label="مكان صورة: داخل الاستوديو أثناء ختام الشرنقة">
+      <div class="photo-slot reveal" style="min-height:380px" role="img" aria-label="مكان صورة: داخل الاستوديو أثناء ختام الشرنقة" data-photo-slot="home_studio">
         {ART_JELLY}
         <span class="ps-label">مكان صورة — الاستوديو · ختام الشرنقة</span>
       </div>
@@ -126,7 +124,7 @@ HOME_BODY = f'''
 <section class="section section-tint-sand">
   <div class="container">
     <div class="split">
-      <div class="photo-slot reveal" style="min-height:340px;background:linear-gradient(160deg,#F6F0E3, #EAF6F4)" role="img" aria-label="مكان صورة: مجموعة الريتريت عند الغروب">
+      <div class="photo-slot reveal" style="min-height:340px;background:linear-gradient(160deg,#F6F0E3, #EAF6F4)" role="img" aria-label="مكان صورة: مجموعة الريتريت عند الغروب" data-photo-slot="retreat_home">
         {ART_SILK}
         <span class="ps-label">مكان صورة — ريتريت ٢٠٢٥ · حصة الغروب</span>
       </div>
@@ -200,16 +198,16 @@ CLASSES_BODY = f'''
 <section class="section section-tint-sea">
   <div class="container">
     <div class="sec-head center reveal">
-      <span class="sec-kicker">أسبوع نموذجي</span>
-      <h2>جدول الأسبوع<span class="sec-mirror" lang="en" dir="ltr">Sample weekly schedule</span></h2>
-      <p class="sec-lead">يُنشر الجدول الفعلي كل أسبوع على واتساب وقصص إنستغرام — هذا شكل الأسبوع المعتاد في الموسم.</p>
+      <span class="sec-kicker">هذا الأسبوع</span>
+      <h2>جدول الأسبوع<span class="sec-mirror" lang="en" dir="ltr">The weekly schedule</span></h2>
+      <p class="sec-lead" data-schedule-status>يحدّث الاستوديو هذا الجدول مباشرةً — وتُعلن التغييرات أيضاً على واتساب وقصص إنستغرام.</p>
     </div>
     <div class="schedule-wrap reveal">
       <table class="schedule">
-        <caption class="visually-hidden">جدول أسبوعي نموذجي للحصص</caption>
-        <thead><tr><th scope="col">اليوم</th><th scope="col">الصباح</th><th scope="col">الغروب</th></tr></thead>
-        <tbody>
-          {"".join(f'<tr><th scope="row" class="cls">{d}</th><td>{m}</td><td>{e}</td></tr>' for d, m, e in SCHEDULE_AR)}
+        <caption class="visually-hidden">جدول الحصص الأسبوعي</caption>
+        <thead><tr><th scope="col">اليوم</th><th scope="col">الحصة</th><th scope="col">الوقت والمستوى</th></tr></thead>
+        <tbody data-live-schedule>
+          {"".join(f'<tr><th scope="row" class="cls">{d}</th><td class="cls">{c}</td><td><span class="meta">{m}</span></td></tr>' for d, c, m in SCHEDULE_AR)}
         </tbody>
       </table>
     </div>
@@ -268,8 +266,8 @@ AYTTC_BODY = f'''
       <div class="proof"><div class="p-num">٨</div><div class="p-label">حد أقصى للمتدربات في الدفعة — الجميع يُدرّس والجميع يُرى</div></div>
     </div>
     <div class="two-col mt-3">
-      <div class="photo-slot reveal" role="img" aria-label="مكان صورة: تخرج دفعة أبريل ٢٠٢٥">{ART_SILK}<span class="ps-label">مكان صورة — دفعة أبريل ٢٠٢٥</span></div>
-      <div class="photo-slot reveal" role="img" aria-label="مكان صورة: تدريب دفعة أبريل ٢٠٢٦">{ART_SILK}<span class="ps-label">مكان صورة — دفعة أبريل ٢٠٢٦</span></div>
+      <div class="photo-slot reveal" role="img" aria-label="مكان صورة: تخرج دفعة أبريل ٢٠٢٥" data-photo-slot="ayttc_2025">{ART_SILK}<span class="ps-label">مكان صورة — دفعة أبريل ٢٠٢٥</span></div>
+      <div class="photo-slot reveal" role="img" aria-label="مكان صورة: تدريب دفعة أبريل ٢٠٢٦" data-photo-slot="ayttc_2026">{ART_SILK}<span class="ps-label">مكان صورة — دفعة أبريل ٢٠٢٦</span></div>
     </div>
   </div>
 </section>
@@ -337,7 +335,7 @@ RETREATS_BODY = f'''
         <p class="sec-lead">وصل الضيوف من ثلاث قارات لأسبوعٍ من الممارسة الهوائية والمرونة وصباحات دهب البطيئة وبعد الظهر الطويل عند البحر. نسخة ٢٠٢٦ تبني على كل ما تعلمناه.</p>
         <p class="sec-lead">الإقامة لدى فنادق شريكة مرخّصة على شاطئ دهب — تنامين قانونياً ومريحةً وعلى خطواتٍ من الماء.</p>
       </div>
-      <div class="photo-slot reveal" style="min-height:360px" role="img" aria-label="مكان صورة: صورة جماعية لريتريت ٢٠٢٥">{ART_JELLY}<span class="ps-label">مكان صورة — مجموعة ريتريت ٢٠٢٥</span></div>
+      <div class="photo-slot reveal" style="min-height:360px" role="img" aria-label="مكان صورة: صورة جماعية لريتريت ٢٠٢٥" data-photo-slot="retreat_2025">{ART_JELLY}<span class="ps-label">مكان صورة — مجموعة ريتريت ٢٠٢٥</span></div>
     </div>
   </div>
 </section>
@@ -393,7 +391,7 @@ TEACHERS_BODY = f'''
   <div class="container">
     <div class="teacher-grid">
       <article class="teacher reveal">
-        <div class="photo-slot" role="img" aria-label="مكان صورة: منى شافعي">{ART_SILK}<span class="ps-label">مكان صورة — منى شافعي</span></div>
+        <div class="photo-slot" role="img" aria-label="مكان صورة: منى شافعي" data-photo-slot="teacher_mona">{ART_SILK}<span class="ps-label">مكان صورة — منى شافعي</span></div>
         <div class="teacher-body">
           <h3>منى شافعي</h3>
           <p class="t-creds">E-RYT 200 · YACEP · مؤسِّسة</p>
@@ -402,7 +400,7 @@ TEACHERS_BODY = f'''
         </div>
       </article>
       <article class="teacher reveal">
-        <div class="photo-slot" role="img" aria-label="مكان صورة: ريم أبو العلا">{ART_SILK}<span class="ps-label">مكان صورة — ريم أبو العلا</span></div>
+        <div class="photo-slot" role="img" aria-label="مكان صورة: ريم أبو العلا" data-photo-slot="teacher_reem">{ART_SILK}<span class="ps-label">مكان صورة — ريم أبو العلا</span></div>
         <div class="teacher-body">
           <h3>ريم أبو العلا</h3>
           <p class="t-creds">معلمة هوائية معتمدة من Yoga Alliance · شريكة مؤسِّسة</p>
@@ -445,8 +443,8 @@ HAMMOCKS_BODY = f'''
       <article class="card reveal"><div class="card-art" style="background:var(--sand-2)"></div><h3>مصنوعة لتُوثَق بها</h3><p>نفس القماش ومعايير المعدات المصنّفة التي نعلّق بها طالباتنا — لأننا نفعل ذلك كل يوم في الشالا.</p><a class="card-cta" href="/ar/accessibility/">معايير السلامة ←</a></article>
     </div>
     <div class="two-col mt-3">
-      <div class="photo-slot reveal" role="img" aria-label="مكان صورة: أقمشة الأراجيح وألوانها">{ART_SILK}<span class="ps-label">مكان صورة — ألوان الأقمشة</span></div>
-      <div class="photo-slot reveal" role="img" aria-label="مكان صورة: منى تخيط أرجوحة">{ART_SILK}<span class="ps-label">مكان صورة — المشغل</span></div>
+      <div class="photo-slot reveal" role="img" aria-label="مكان صورة: أقمشة الأراجيح وألوانها" data-photo-slot="hammocks_fabric">{ART_SILK}<span class="ps-label">مكان صورة — ألوان الأقمشة</span></div>
+      <div class="photo-slot reveal" role="img" aria-label="مكان صورة: منى تخيط أرجوحة" data-photo-slot="hammocks_atelier">{ART_SILK}<span class="ps-label">مكان صورة — المشغل</span></div>
     </div>
     <div class="note-soft mt-3">الأسعار والألوان المتاحة حالياً في كتالوج واتساب — أرسلي كلمة <strong>«HAMMOCKS»</strong> وسترسل لك منى الكتالوج. تابعي <a href="https://www.instagram.com/hammocksbymonashafei/" target="_blank" rel="noopener">@hammocksbymonashafei</a> للتشكيلات الجديدة.</div>
   </div>
@@ -603,4 +601,79 @@ PAGES = {
         "desc": "احجزي اليوغا الهوائية في دهب عبر واتساب +20 115 616 6225 أو راسلي 'AERIAL' على إنستغرام. حصص وتدريب معلمين وريتريتات وأراجيح وشراكات.",
         "body": CONTACT_BODY,
     },
+}
+
+
+ACCOUNT_BODY_AR = '''
+<section class="page-hero">
+  <div class="container">
+    <span class="sec-kicker">الأعضاء</span>
+    <h1>حسابك في <span class="line-accent">الشالا</span></h1>
+    <p class="hero-alt-lang" lang="en" dir="ltr">Your shala account</p>
+    <p class="ph-lead">سجّلي الدخول لرؤية الجدول المباشر وإعلانات الأعضاء ومواعيد الريتريت قبل الجميع.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div id="auth-view">
+      <div class="two-col" style="max-width:940px;margin:0 auto">
+        <div class="auth-card">
+          <h3>تسجيل الدخول</h3>
+          <form id="form-signin" class="mt-1">
+            <div class="field"><label for="si-email">البريد الإلكتروني</label><input id="si-email" type="email" autocomplete="email" required></div>
+            <div class="field"><label for="si-pw">كلمة المرور</label><input id="si-pw" type="password" autocomplete="current-password" required></div>
+            <button class="btn btn-primary btn-block" type="submit">دخول</button>
+            <div id="signin-msg" class="auth-msg" role="status"></div>
+          </form>
+          <p class="auth-alt"><button id="btn-reset" class="btn btn-ghost btn-sm" type="button">نسيتِ كلمة المرور؟</button></p>
+        </div>
+        <div class="auth-card">
+          <h3>جديدة هنا؟ أنشئي حساباً</h3>
+          <form id="form-signup" class="mt-1">
+            <div class="field"><label for="su-name">اسمك</label><input id="su-name" type="text" autocomplete="name" required></div>
+            <div class="field"><label for="su-email">البريد الإلكتروني</label><input id="su-email" type="email" autocomplete="email" required></div>
+            <div class="field"><label for="su-pw">كلمة المرور (٦ أحرف على الأقل)</label><input id="su-pw" type="password" autocomplete="new-password" required></div>
+            <button class="btn btn-sea btn-block" type="submit">إنشاء الحساب</button>
+            <div id="signup-msg" class="auth-msg" role="status"></div>
+          </form>
+        </div>
+      </div>
+      <p class="center mt-3" style="color:var(--ink-faint);font-size:14px">الحسابات مجانية — والحجز ما زال عبر واتساب حالياً.</p>
+    </div>
+
+    <div id="member-view" style="display:none">
+      <div class="center">
+        <p id="member-hello" class="sec-lead"></p>
+        <p class="mt-1">
+          <a id="admin-link" class="btn btn-primary btn-sm" href="/admin/" style="display:none">لوحة إدارة الاستوديو</a>
+          <button id="btn-signout" class="btn btn-ghost btn-sm" type="button">تسجيل الخروج</button>
+        </p>
+      </div>
+      <div class="two-col mt-3">
+        <div>
+          <h3>هذا الأسبوع في الشالا</h3>
+          <div class="schedule-wrap mt-1">
+            <table class="schedule">
+              <thead><tr><th scope="col">اليوم</th><th scope="col">الحصة</th><th scope="col">الوقت</th></tr></thead>
+              <tbody data-live-schedule><tr><td colspan="3">جارٍ تحميل الجدول…</td></tr></tbody>
+            </table>
+          </div>
+          <p class="mt-2"><a class="btn btn-primary btn-sm" data-wa="classes" href="#">احجزي عبر واتساب</a></p>
+        </div>
+        <div>
+          <h3>الأخبار والفعاليات</h3>
+          <ul id="member-events" class="member-list mt-1"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+'''
+
+PAGES["account/"] = {
+    "title": "حساب الأعضاء — لا ميدوزا · شالا الطيران",
+    "desc": "سجّلي الدخول إلى لا ميدوزا لرؤية جدول الحصص المباشر وإعلانات الأعضاء ومواعيد الريتريت أولاً.",
+    "body": ACCOUNT_BODY_AR,
+    "extra_scripts": '<script src="/assets/js/account.js" defer></script>',
 }

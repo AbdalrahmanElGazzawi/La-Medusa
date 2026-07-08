@@ -14,13 +14,10 @@ CLASSES = [
 ]
 
 SCHEDULE = [
-    ("Monday", "Aerial flow · 9:00", "Intro to silks · 18:00"),
-    ("Tuesday", "Hammock mobility · 9:00", "Vinyasa (mat) · 18:00"),
-    ("Wednesday", "—", "Kids & teens · 16:30<br>Restorative aerial · 18:30"),
-    ("Thursday", "Aerial flow · 9:00", "Master silks · 18:00"),
-    ("Friday", "Aerial hoop series · 10:00", "—"),
-    ("Saturday", "Intro to silks · 9:00", "Therapeutic aerial · 18:00"),
-    ("Sunday", "Community rest day", "—"),
+    ("Sunday", "Aerial Yin", "7:00 PM · all levels"),
+    ("Tuesday", "101 Aerials", "7:00 PM · beginner-friendly"),
+    ("Thursday", "Aerial Yin", "7:00 PM · all levels"),
+    ("Friday", "101 Aerials", "9:00 AM · beginner-friendly"),
 ]
 
 def class_cards(items):
@@ -57,6 +54,7 @@ HOME_BODY = f'''
   </div>
   <div class="horizon">{art_horizon("Illustration of an aerialist suspended in a hammock above the sea and desert of Dahab")}</div>
 </section>
+<div data-live-news class="container"></div>
 
 <section class="section">
   <div class="container">
@@ -68,7 +66,7 @@ HOME_BODY = f'''
         <p class="sec-lead">Every class ends the same way: wrapped in the hammock, swaying like a jellyfish in still water.</p>
         <a class="btn btn-ghost mt-2" href="/teachers/">Meet your teachers</a>
       </div>
-      <div class="photo-slot reveal" style="min-height:380px" role="img" aria-label="Photo slot: studio interior during a cocoon ending">
+      <div class="photo-slot reveal" data-photo-slot="home_studio" style="min-height:380px" role="img" aria-label="Photo slot: studio interior during a cocoon ending">
         {ART_JELLY.replace('viewBox="0 0 120 96"', 'viewBox="0 0 120 96" width="140"')}
         <span class="ps-label">Photo slot — studio · cocoon ending</span>
       </div>
@@ -125,7 +123,7 @@ HOME_BODY = f'''
 <section class="section section-tint-sand">
   <div class="container">
     <div class="split">
-      <div class="photo-slot reveal" style="min-height:340px;background:linear-gradient(160deg,#F6F0E3, #EAF6F4)" role="img" aria-label="Photo slot: retreat group at sunset by the sea">
+      <div class="photo-slot reveal" data-photo-slot="retreat_home" style="min-height:340px;background:linear-gradient(160deg,#F6F0E3, #EAF6F4)" role="img" aria-label="Photo slot: retreat group at sunset by the sea">
         {ART_SILK}
         <span class="ps-label">Photo slot — retreat 2025 · sunset session</span>
       </div>
@@ -199,16 +197,16 @@ CLASSES_BODY = f'''
 <section class="section section-tint-sea">
   <div class="container">
     <div class="sec-head center reveal">
-      <span class="sec-kicker">A typical week</span>
-      <h2>Sample weekly schedule<span class="sec-mirror" lang="ar" dir="rtl">جدول الأسبوع</span></h2>
-      <p class="sec-lead">The live schedule is posted every week on WhatsApp and Instagram stories — this is the shape of a typical week in season.</p>
+      <span class="sec-kicker">This week</span>
+      <h2>The weekly schedule<span class="sec-mirror" lang="ar" dir="rtl">جدول الأسبوع</span></h2>
+      <p class="sec-lead" data-schedule-status>The studio updates this schedule directly — changes are announced on WhatsApp and Instagram stories too.</p>
     </div>
     <div class="schedule-wrap reveal">
       <table class="schedule">
-        <caption class="visually-hidden">Sample weekly class schedule</caption>
-        <thead><tr><th scope="col">Day</th><th scope="col">Morning</th><th scope="col">Sunset</th></tr></thead>
-        <tbody>
-          {"".join(f'<tr><th scope="row" class="cls">{d}</th><td>{m}</td><td>{e}</td></tr>' for d, m, e in SCHEDULE)}
+        <caption class="visually-hidden">Weekly class schedule</caption>
+        <thead><tr><th scope="col">Day</th><th scope="col">Class</th><th scope="col">Time &amp; level</th></tr></thead>
+        <tbody data-live-schedule>
+          {"".join(f'<tr><th scope="row" class="cls">{d}</th><td class="cls">{c}</td><td><span class="meta">{m}</span></td></tr>' for d, c, m in SCHEDULE)}
         </tbody>
       </table>
     </div>
@@ -281,8 +279,8 @@ AYTTC_BODY = f'''
       <div class="proof"><div class="p-num">8</div><div class="p-label">Max trainees per cohort — everyone teaches, everyone is seen</div></div>
     </div>
     <div class="two-col mt-3">
-      <div class="photo-slot reveal" role="img" aria-label="Photo slot: April 2025 cohort graduation">{ART_SILK}<span class="ps-label">Photo slot — April 2025 cohort</span></div>
-      <div class="photo-slot reveal" role="img" aria-label="Photo slot: April 2026 cohort in training">{ART_SILK}<span class="ps-label">Photo slot — April 2026 cohort</span></div>
+      <div class="photo-slot reveal" role="img" aria-label="Photo slot: April 2025 cohort graduation" data-photo-slot="ayttc_2025">{ART_SILK}<span class="ps-label">Photo slot — April 2025 cohort</span></div>
+      <div class="photo-slot reveal" role="img" aria-label="Photo slot: April 2026 cohort in training" data-photo-slot="ayttc_2026">{ART_SILK}<span class="ps-label">Photo slot — April 2026 cohort</span></div>
     </div>
   </div>
 </section>
@@ -350,7 +348,7 @@ RETREATS_BODY = f'''
         <p class="sec-lead">Guests flew in from three continents for a week of aerial practice, mobility, Dahab's slow mornings and long sea afternoons. The 2026 edition builds on everything we learned.</p>
         <p class="sec-lead">Accommodation is hosted with licensed partner hotels on the Dahab shore — you sleep legally, comfortably and steps from the water.</p>
       </div>
-      <div class="photo-slot reveal" style="min-height:360px" role="img" aria-label="Photo slot: 2025 retreat group photo">{ART_JELLY}<span class="ps-label">Photo slot — retreat 2025 group</span></div>
+      <div class="photo-slot reveal" style="min-height:360px" role="img" aria-label="Photo slot: 2025 retreat group photo" data-photo-slot="retreat_2025">{ART_JELLY}<span class="ps-label">Photo slot — retreat 2025 group</span></div>
     </div>
   </div>
 </section>
@@ -406,7 +404,7 @@ TEACHERS_BODY = f'''
   <div class="container">
     <div class="teacher-grid">
       <article class="teacher reveal">
-        <div class="photo-slot" role="img" aria-label="Photo slot: portrait of Mona Shafei">{ART_SILK}<span class="ps-label">Photo slot — Mona Shafei</span></div>
+        <div class="photo-slot" role="img" aria-label="Photo slot: portrait of Mona Shafei" data-photo-slot="teacher_mona">{ART_SILK}<span class="ps-label">Photo slot — Mona Shafei</span></div>
         <div class="teacher-body">
           <h3>Mona Shafei</h3>
           <p class="t-creds">E-RYT 200 · YACEP · Founder</p>
@@ -415,7 +413,7 @@ TEACHERS_BODY = f'''
         </div>
       </article>
       <article class="teacher reveal">
-        <div class="photo-slot" role="img" aria-label="Photo slot: portrait of Reem Abuel Ela">{ART_SILK}<span class="ps-label">Photo slot — Reem Abuel Ela</span></div>
+        <div class="photo-slot" role="img" aria-label="Photo slot: portrait of Reem Abuel Ela" data-photo-slot="teacher_reem">{ART_SILK}<span class="ps-label">Photo slot — Reem Abuel Ela</span></div>
         <div class="teacher-body">
           <h3>Reem Abuel Ela</h3>
           <p class="t-creds">YA-certified aerial teacher · Co-founder</p>
@@ -458,8 +456,8 @@ HAMMOCKS_BODY = f'''
       <article class="card reveal"><div class="card-art" style="background:var(--sand-2)"></div><h3>Made to be trusted</h3><p>The same fabric and rated hardware standards we hang our own students from — because we do, every day, in the shala.</p><a class="card-cta" href="/accessibility/">Our safety standards →</a></article>
     </div>
     <div class="two-col mt-3">
-      <div class="photo-slot reveal" role="img" aria-label="Photo slot: hammock fabrics and colors">{ART_SILK}<span class="ps-label">Photo slot — fabric colors</span></div>
-      <div class="photo-slot reveal" role="img" aria-label="Photo slot: Mona sewing a hammock">{ART_SILK}<span class="ps-label">Photo slot — the atelier</span></div>
+      <div class="photo-slot reveal" role="img" aria-label="Photo slot: hammock fabrics and colors" data-photo-slot="hammocks_fabric">{ART_SILK}<span class="ps-label">Photo slot — fabric colors</span></div>
+      <div class="photo-slot reveal" role="img" aria-label="Photo slot: Mona sewing a hammock" data-photo-slot="hammocks_atelier">{ART_SILK}<span class="ps-label">Photo slot — the atelier</span></div>
     </div>
     <div class="note-soft mt-3">Pricing and current color runs live in the WhatsApp catalog — message <strong>“HAMMOCKS”</strong> and Mona will send it over. Follow <a href="https://www.instagram.com/hammocksbymonashafei/" target="_blank" rel="noopener">@hammocksbymonashafei</a> for new collections.</div>
   </div>
@@ -624,3 +622,140 @@ PAGES = {
         "body": CONTACT_BODY,
     },
 }
+
+
+ACCOUNT_BODY = '''
+<section class="page-hero">
+  <div class="container">
+    <span class="sec-kicker">Members</span>
+    <h1>Your <span class="line-accent">shala account</span></h1>
+    <p class="hero-alt-lang" lang="ar" dir="rtl">حسابك في الشالا</p>
+    <p class="ph-lead">Sign in to see the live schedule, member announcements and retreat dates before anyone else.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div id="auth-view">
+      <div class="two-col" style="max-width:940px;margin:0 auto">
+        <div class="auth-card">
+          <h3>Sign in</h3>
+          <form id="form-signin" class="mt-1">
+            <div class="field"><label for="si-email">Email</label><input id="si-email" type="email" autocomplete="email" required></div>
+            <div class="field"><label for="si-pw">Password</label><input id="si-pw" type="password" autocomplete="current-password" required></div>
+            <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+            <div id="signin-msg" class="auth-msg" role="status"></div>
+          </form>
+          <p class="auth-alt"><button id="btn-reset" class="btn btn-ghost btn-sm" type="button">Forgot password?</button></p>
+        </div>
+        <div class="auth-card">
+          <h3>New here? Create an account</h3>
+          <form id="form-signup" class="mt-1">
+            <div class="field"><label for="su-name">Your name</label><input id="su-name" type="text" autocomplete="name" required></div>
+            <div class="field"><label for="su-email">Email</label><input id="su-email" type="email" autocomplete="email" required></div>
+            <div class="field"><label for="su-pw">Password (min 6 characters)</label><input id="su-pw" type="password" autocomplete="new-password" required></div>
+            <button class="btn btn-sea btn-block" type="submit">Create account</button>
+            <div id="signup-msg" class="auth-msg" role="status"></div>
+          </form>
+        </div>
+      </div>
+      <p class="center mt-3" style="color:var(--ink-faint);font-size:14px">Accounts are free — booking still happens on WhatsApp for now.</p>
+    </div>
+
+    <div id="member-view" style="display:none">
+      <div class="center">
+        <p id="member-hello" class="sec-lead"></p>
+        <p class="mt-1">
+          <a id="admin-link" class="btn btn-primary btn-sm" href="/admin/" style="display:none">Studio management panel</a>
+          <button id="btn-signout" class="btn btn-ghost btn-sm" type="button">Sign out</button>
+        </p>
+      </div>
+      <div class="two-col mt-3">
+        <div>
+          <h3>This week at the shala</h3>
+          <div class="schedule-wrap mt-1">
+            <table class="schedule">
+              <thead><tr><th scope="col">Day</th><th scope="col">Class</th><th scope="col">Time</th></tr></thead>
+              <tbody data-live-schedule><tr><td colspan="3">Loading schedule…</td></tr></tbody>
+            </table>
+          </div>
+          <p class="mt-2"><a class="btn btn-primary btn-sm" data-wa="classes" href="#">Book on WhatsApp</a></p>
+        </div>
+        <div>
+          <h3>News &amp; events</h3>
+          <ul id="member-events" class="member-list mt-1"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+'''
+
+PAGES["account/"] = {
+    "title": "Member Account — La Medusa · The Aerialist Shala",
+    "desc": "Sign in to La Medusa to see the live class schedule, member announcements and retreat dates first.",
+    "body": ACCOUNT_BODY,
+    "extra_scripts": '<script src="/assets/js/account.js" defer></script>',
+}
+
+ADMIN_BODY = '''
+<section class="page-hero">
+  <div class="container">
+    <span class="sec-kicker">Studio management</span>
+    <h1>Run the <span class="line-accent">shala</span></h1>
+    <p class="ph-lead">Schedule, events, photos and admins — changes go live on the website instantly.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <p id="gate" class="note-soft">Checking your access…</p>
+    <div id="panel-wrap" style="display:none">
+      <div class="admin-tabs">
+        <button class="on" data-p="sched">Schedule</button>
+        <button data-p="events">Events &amp; news</button>
+        <button data-p="photos">Photos</button>
+        <button data-p="admins">Admins</button>
+      </div>
+
+      <div class="admin-panel on" id="panel-sched">
+        <div style="overflow-x:auto">
+        <table class="admin-table" style="min-width:900px">
+          <thead><tr><th>Day</th><th>Time</th><th>Class (EN)</th><th>Class (AR)</th><th>Level</th><th>EGP</th><th>Live</th><th></th></tr></thead>
+          <tbody id="sched-body"></tbody>
+        </table>
+        </div>
+        <p class="mt-2"><button id="btn-add-slot" class="btn btn-primary btn-sm" type="button">Add a class slot</button></p>
+        <p class="mt-1" style="font-size:13.5px;color:var(--ink-faint)">Untick “Live” to hide a class without deleting it. Price can stay empty.</p>
+      </div>
+
+      <div class="admin-panel" id="panel-events">
+        <div style="overflow-x:auto">
+        <table class="admin-table" style="min-width:980px">
+          <thead><tr><th>Type</th><th>Title EN / AR</th><th>Text EN / AR</th><th>Date</th><th>Published</th><th>Members only</th><th></th></tr></thead>
+          <tbody id="ev-body"></tbody>
+        </table>
+        </div>
+        <p class="mt-2"><button id="btn-add-event" class="btn btn-primary btn-sm" type="button">Add event / announcement</button></p>
+        <p class="mt-1" style="font-size:13.5px;color:var(--ink-faint)">The newest published public item also shows as a banner on the home page. “Members only” items appear just in the members area.</p>
+      </div>
+
+      <div class="admin-panel" id="panel-photos">
+        <div id="photo-list"></div>
+        <p class="mt-1" style="font-size:13.5px;color:var(--ink-faint)">Photos replace the placeholder art on the site the moment they upload. Keep files under 4 MB — export from your phone at medium size so pages stay fast on Dahab internet.</p>
+      </div>
+
+      <div class="admin-panel" id="panel-admins">
+        <table class="admin-table" style="max-width:560px">
+          <thead><tr><th>Admin email</th><th></th></tr></thead>
+          <tbody id="admin-body"></tbody>
+        </table>
+        <div class="mt-2" style="display:flex;gap:10px;max-width:560px">
+          <input id="new-admin-email" type="email" placeholder="name@email.com" style="flex:1;padding:11px 14px;border:1.5px solid var(--sea-tint-2);border-radius:12px;font-family:var(--font-sans)">
+          <button id="btn-add-admin" class="btn btn-sea btn-sm" type="button">Add admin</button>
+        </div>
+        <p class="mt-1" style="font-size:13.5px;color:var(--ink-faint)">If they already have an account they become admin immediately; otherwise it applies when they sign up with this email.</p>
+      </div>
+    </div>
+  </div>
+</section>
+'''

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://lamedusadahab.com/sitemap.xml

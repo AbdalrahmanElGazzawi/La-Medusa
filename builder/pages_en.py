@@ -2,15 +2,15 @@
 from common import ART_JELLY, ART_SILK, ICON_WA, art_horizon, cocoon, DOMAIN
 
 CLASSES = [
-    ("Aerial flow", "Breath-led vinyasa in and out of the hammock — float, fold and finish upside-down.", "575", "All levels", "sea"),
+    ("Aerial flow", "Breath-led vinyasa in and out of the hammock — float, fold and finish upside-down.", "500–650", "All levels", "sea"),
     ("Intro to silks", "Your first flight. Learn the fabric, build trust, leave swaying in a cocoon.", "500", "Beginners", "lav"),
-    ("Restorative aerial", "Slow, supported shapes. The hammock holds you so your nervous system can let go.", "550", "All levels", "sea"),
+    ("Restorative aerial", "Slow, supported shapes. The hammock holds you so your nervous system can let go.", "500–650", "All levels", "sea"),
     ("Hammock mobility", "Deep hips, spine and shoulder work with the hammock as your mobility tool.", "650", "All levels", "lav"),
-    ("Kids & teens aerial", "Play, strength and confidence in the air — safe, supervised, joyful.", "500", "Ages 6–15", "sand"),
-    ("Therapeutic aerial", "Gentle decompression and targeted release for backs that sit at desks.", "600", "All levels", "sea"),
-    ("Aerial hoop series", "Artistry and strength on the lyra — a progressive multi-week series.", "600", "Progressive", "lav"),
-    ("Master silks", "Advanced fabric technique for experienced flyers — wraps, drops-free artistry.", "650", "Advanced", "sea"),
-    ("Vinyasa & hatha (mat)", "Grounded classes that build the breath and base your aerial practice grows from.", "500", "All levels", "sand"),
+    ("Kids & teens aerial", "Play, strength and confidence in the air — safe, supervised, joyful.", "500–650", "Ages 6–15", "sand"),
+    ("Therapeutic aerial", "Gentle decompression and targeted release for backs that sit at desks.", "500–650", "All levels", "sea"),
+    ("Aerial hoop series", "Artistry and strength on the lyra — a progressive multi-week series.", "500–650", "Progressive", "lav"),
+    ("Master silks", "Advanced fabric technique for experienced flyers — wraps, drops-free artistry.", "500–650", "Advanced", "sea"),
+    ("Vinyasa & hatha (mat)", "Grounded classes that build the breath and base your aerial practice grows from.", "500–650", "All levels", "sand"),
 ]
 
 SCHEDULE = [
@@ -45,7 +45,6 @@ HOME_BODY = f'''
   <div class="hero-inner">
     <p class="hero-kicker">Aerial yoga · Assala, Dahab · South Sinai</p>
     <h1>Move beautifully.<br>Feel freely. <span class="line-accent">Fly gracefully.</span></h1>
-    <p class="hero-alt-lang" lang="ar" dir="rtl">تحرّكي بجمال. اشعري بالحرية. حلّقي برشاقة.</p>
     <p class="hero-sub">A calm, somatic aerial studio between the Sinai mountains and the Red Sea. Classes begin with gentle stretching, build to inversions, and end swaying in a cocoon.</p>
     <div class="hero-ctas">
       <a class="btn btn-primary" data-wa="classes" href="#">{ICON_WA} Book on WhatsApp</a>
@@ -61,15 +60,12 @@ HOME_BODY = f'''
     <div class="split">
       <div class="reveal">
         <span class="sec-kicker">The shala</span>
-        <h2>Where the desert meets the sea — and you meet the air<span class="sec-mirror" lang="ar" dir="rtl">حيث تلتقي الصحراء بالبحر</span></h2>
+        <h2>Where the desert meets the sea — and you meet the air</h2>
         <p class="sec-lead">La Medusa is Dahab's aerial yoga studio. Our practice is soft on purpose: no drops, no tricks-first culture — just breath, fabric, and the slow discovery that your body can hang, fold and fly.</p>
         <p class="sec-lead">Every class ends the same way: wrapped in the hammock, swaying like a jellyfish in still water.</p>
         <a class="btn btn-ghost mt-2" href="/teachers/">Meet your teachers</a>
       </div>
-      <div class="photo-slot reveal" data-photo-slot="home_studio" style="min-height:380px" role="img" aria-label="Photo slot: studio interior during a cocoon ending">
-        {ART_JELLY.replace('viewBox="0 0 120 96"', 'viewBox="0 0 120 96" width="140"')}
-        <span class="ps-label">Photo slot — studio · cocoon ending</span>
-      </div>
+      <div class="photo-slot has-photo reveal" data-photo-slot="home_studio" style="min-height:380px"><img class="photo" src="/assets/img/photos/studio-aerialist.jpg" style="object-position:center 30%" alt="An aerialist stretched in a full pose beneath the painted La Medusa logo in the shala" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -79,7 +75,7 @@ HOME_BODY = f'''
   <div class="container">
     <div class="sec-head center reveal">
       <span class="sec-kicker">Classes</span>
-      <h2>Tailored classes for all levels — adults &amp; kids<span class="sec-mirror" lang="ar" dir="rtl">حصص لكل المستويات — كبار وصغار</span></h2>
+      <h2>Tailored classes for all levels — adults &amp; kids</h2>
       <p class="sec-lead">90-minute sessions from 500–650 EGP. Small groups, one teacher's eyes on every body.</p>
     </div>
     <div class="card-grid">
@@ -104,13 +100,13 @@ HOME_BODY = f'''
   <div class="container">
     <div class="sec-head center reveal">
       <span class="sec-kicker">Teacher training</span>
-      <h2>The AYTTC — proven, not promised<span class="sec-mirror" lang="ar" dir="rtl">تدريب معلمات اليوغا الهوائية</span></h2>
+      <h2>The AYTTC — proven, not promised</h2>
     </div>
     <div class="proof-row reveal">
       <div class="proof"><div class="p-num">2</div><div class="p-label">Cohorts delivered — April 2025 &amp; April 2026</div></div>
       <div class="proof"><div class="p-num">Jul '26</div><div class="p-label">Next cohort — enrolling now</div></div>
       <div class="proof"><div class="p-num">E-RYT 200</div><div class="p-label">Led by Mona Shafei, YACEP</div></div>
-      <div class="proof"><div class="p-num">1st</div><div class="p-label">Dedicated aerial teacher training in Sinai</div></div>
+      <div class="proof"><div class="p-num">Sinai</div><div class="p-label">The peninsula's dedicated aerial yoga teacher training</div></div>
     </div>
     <p class="center mt-3">
       <span class="badge-enrolling">July 2026 cohort — enrolling now</span><br><br>
@@ -123,14 +119,11 @@ HOME_BODY = f'''
 <section class="section section-tint-sand">
   <div class="container">
     <div class="split">
-      <div class="photo-slot reveal" data-photo-slot="retreat_home" style="min-height:340px;background:linear-gradient(160deg,#F6F0E3, #EAF6F4)" role="img" aria-label="Photo slot: retreat group at sunset by the sea">
-        {ART_SILK}
-        <span class="ps-label">Photo slot — retreat 2025 · sunset session</span>
-      </div>
+      <div class="photo-slot has-photo reveal" data-photo-slot="retreat_home" style="min-height:340px"><img class="photo" src="/assets/img/photos/pergola-hammocks.jpg" alt="Colorful aerial hammocks hanging in the open-air shala" loading="lazy"></div>
       <div class="reveal">
         <span class="sec-kicker">Retreats</span>
-        <h2>Fly where the mountains fall into the sea<span class="sec-mirror" lang="ar" dir="rtl">ريتريتات على شاطئ دهب</span></h2>
-        <p class="sec-lead">Our 2025 retreat sold out with guests from three continents. Days of aerial practice, breath and salt water — hosted with licensed partner hotels on Dahab's shore.</p>
+        <h2>Fly where the mountains fall into the sea</h2>
+        <p class="sec-lead">Our first retreat ran in 2025. Days of aerial practice, breath and salt water — hosted with licensed partner hotels on Dahab's shore.</p>
         <a class="btn btn-ghost mt-2" href="/retreats/">Retreats &amp; next dates</a>
       </div>
     </div>
@@ -156,6 +149,39 @@ HOME_BODY = f'''
   </div>
 </section>
 
+
+{cocoon("#EAF6F4")}
+<section class="section section-tint-sea">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="sec-kicker">Life at the shala</span>
+      <h2>Real classes, real people, real flying</h2>
+      <p class="sec-lead">Every photo below was taken in our open-air studio in Assala.</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <img class="g-wide" src="/assets/img/photos/group-shala.jpg" alt="A joyful group poses in front of the painted La Medusa logo after class" loading="lazy">
+      <img src="/assets/img/photos/community-circle.jpg" alt="The shala community gathered in a circle beneath the silks" loading="lazy">
+      <img src="/assets/img/photos/assisted-group.jpg" alt="Students helping each other during a group aerial exercise" loading="lazy">
+      <img src="/assets/img/photos/inversion.jpg" alt="A student hangs upside down in an aerial hammock" loading="lazy">
+      <img src="/assets/img/photos/partner-practice.jpg" alt="Two students practicing a partner aerial pose" loading="lazy">
+    </div>
+    <p class="center mt-3"><a class="btn btn-ghost" href="https://www.instagram.com/theaerialistshala/" target="_blank" rel="noopener">More on Instagram — @theaerialistshala</a></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container center">
+    <div class="sec-head center reveal">
+      <span class="sec-kicker">Watch</span>
+      <h2>The shala in motion</h2>
+    </div>
+    <div class="ig-embed-wrap reveal">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DaVlvwAoZu4/" data-instgrm-version="14" style="margin:0 auto; max-width:540px; width:100%"></blockquote>
+    </div>
+  </div>
+</section>
+<script async src="https://www.instagram.com/embed.js"></script>
+
 {cocoon("#EAF6F4")}
 <section class="section section-tint-sea">
   <div class="container center reveal">
@@ -174,7 +200,6 @@ CLASSES_BODY = f'''
   <div class="container">
     <span class="sec-kicker">Classes &amp; schedule</span>
     <h1>Tailored classes for <span class="line-accent">every body</span></h1>
-    <p class="hero-alt-lang" lang="ar" dir="rtl">حصص مصمّمة لكل جسد</p>
     <p class="ph-lead">90-minute sessions in a calm, small-group setting. Pre-booking is required — message us and we'll hold your hammock.</p>
     <div class="hero-ctas"><a class="btn btn-primary" data-wa="classes" href="#">{ICON_WA} Book a class</a></div>
   </div>
@@ -185,8 +210,8 @@ CLASSES_BODY = f'''
   <div class="container">
     <div class="sec-head reveal">
       <span class="sec-kicker">The menu</span>
-      <h2>Nine ways to fly<span class="sec-mirror" lang="ar" dir="rtl">تسع طرق للتحليق</span></h2>
-      <p class="sec-lead">All aerial classes include full safety briefing, padded landing zones and a teacher-checked rig. Prices are per person, per 90-minute session, in Egyptian pounds.</p>
+      <h2>Nine ways to fly</h2>
+      <p class="sec-lead">All aerial classes include full safety briefing, padded landing zones and a teacher-checked rig. Sessions run 500–650 EGP per person (90 minutes); the exact price of each class is confirmed when you book.</p>
     </div>
     <div class="card-grid">{class_cards(CLASSES)}</div>
     <div class="note-soft mt-3">Schedule and prices are confirmed when you book — dual local / visitor rates and class passes are announced on WhatsApp. Sliding-scale places are available in every class: see our <a href="/accessibility/">accessibility promise</a>.</div>
@@ -198,7 +223,7 @@ CLASSES_BODY = f'''
   <div class="container">
     <div class="sec-head center reveal">
       <span class="sec-kicker">This week</span>
-      <h2>The weekly schedule<span class="sec-mirror" lang="ar" dir="rtl">جدول الأسبوع</span></h2>
+      <h2>The weekly schedule</h2>
       <p class="sec-lead" data-schedule-status>The studio updates this schedule directly — changes are announced on WhatsApp and Instagram stories too.</p>
     </div>
     <div class="schedule-wrap reveal">
@@ -229,7 +254,7 @@ CLASSES_BODY = f'''
       </div>
       <div class="reveal">
         <h3>Kids fly too</h3>
-        <p class="sec-lead">Weekly kids &amp; teens sessions build strength, focus and fearless joy — with the same safety standards as every adult class, and parents welcome to watch.</p>
+        <p class="sec-lead">Kids &amp; teens sessions build strength, focus and fearless joy — with the same safety standards as every adult class.</p>
         <a class="btn btn-ghost mt-2" data-wa="kids" href="#">Ask about kids' classes</a>
       </div>
     </div>
@@ -256,7 +281,6 @@ AYTTC_BODY = f'''
   <div class="container">
     <span class="badge-enrolling">July 2026 cohort — enrolling now</span>
     <h1 class="mt-2">Become an aerial yoga teacher — <span class="line-accent">in Dahab</span></h1>
-    <p class="hero-alt-lang" lang="ar" dir="rtl">كوني معلّمة يوغا هوائية — في دهب</p>
     <p class="ph-lead">The AYTTC is Sinai's dedicated aerial yoga teacher training: small cohorts, real teaching practice, and a curriculum built from our own Pose &amp; Practice Manual.</p>
     <div class="hero-ctas">
       <a class="btn btn-primary" data-wa="ayttc" href="#">{ICON_WA} Reserve your spot</a>
@@ -270,17 +294,17 @@ AYTTC_BODY = f'''
   <div class="container">
     <div class="sec-head center reveal">
       <span class="sec-kicker">Track record</span>
-      <h2>Proven, not promised<span class="sec-mirror" lang="ar" dir="rtl">سجلّ مثبت</span></h2>
+      <h2>Proven, not promised</h2>
     </div>
     <div class="proof-row reveal">
       <div class="proof"><div class="p-num">Apr '25</div><div class="p-label">First cohort delivered</div></div>
       <div class="proof"><div class="p-num">Apr '26</div><div class="p-label">Second cohort delivered</div></div>
       <div class="proof"><div class="p-num">Jul '26</div><div class="p-label">Third cohort — enrolling</div></div>
-      <div class="proof"><div class="p-num">8</div><div class="p-label">Max trainees per cohort — everyone teaches, everyone is seen</div></div>
+      <div class="proof"><div class="p-num">Small</div><div class="p-label">Cohorts kept small — everyone teaches, everyone is seen</div></div>
     </div>
     <div class="two-col mt-3">
-      <div class="photo-slot reveal" role="img" aria-label="Photo slot: April 2025 cohort graduation" data-photo-slot="ayttc_2025">{ART_SILK}<span class="ps-label">Photo slot — April 2025 cohort</span></div>
-      <div class="photo-slot reveal" role="img" aria-label="Photo slot: April 2026 cohort in training" data-photo-slot="ayttc_2026">{ART_SILK}<span class="ps-label">Photo slot — April 2026 cohort</span></div>
+      <div class="photo-slot has-photo reveal" data-photo-slot="ayttc_2025"><img class="photo" src="/assets/img/photos/practice-assist.jpg" alt="A teacher giving a hands-on adjustment during aerial practice" loading="lazy"></div>
+      <div class="photo-slot has-photo reveal" data-photo-slot="ayttc_2026"><img class="photo" src="/assets/img/photos/teaching-spot.jpg" alt="Students watch as a teacher spots an inversion in the studio" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -290,7 +314,7 @@ AYTTC_BODY = f'''
   <div class="container">
     <div class="sec-head reveal">
       <span class="sec-kicker">Curriculum</span>
-      <h2>What you'll learn<span class="sec-mirror" lang="ar" dir="rtl">ماذا ستتعلمين</span></h2>
+      <h2>What you'll learn</h2>
       <p class="sec-lead">Built from the La Medusa Pose &amp; Practice Manual and led by Mona Shafei (E-RYT 200, YACEP) — training that counts toward Yoga Alliance continuing education.</p>
     </div>
     <ul class="timeline reveal">
@@ -318,7 +342,7 @@ AYTTC_BODY = f'''
       </div>
       <div class="reveal">
         <h3>Enrolment — July 2026</h3>
-        <p class="sec-lead">Places are limited to keep the cohort small. A refundable deposit holds your spot; tuition, payment plans and the full information pack come by WhatsApp.</p>
+        <p class="sec-lead">Places are limited to keep cohorts small. A deposit holds your spot; tuition, payment plans and the full information pack come by WhatsApp.</p>
         <a class="btn btn-primary mt-2" data-wa="ayttc" href="#">{ICON_WA} Request the info pack</a>
       </div>
     </div>
@@ -332,7 +356,6 @@ RETREATS_BODY = f'''
   <div class="container">
     <span class="sec-kicker">Retreats</span>
     <h1>Days of air, breath and <span class="line-accent">salt water</span></h1>
-    <p class="hero-alt-lang" lang="ar" dir="rtl">أيام من الهواء والنَفَس وماء البحر</p>
     <p class="ph-lead">Aerial yoga retreats where the Sinai desert falls into the Red Sea — morning flights, freediving-friendly afternoons, cocoon sunsets.</p>
     <div class="hero-ctas"><a class="btn btn-primary" data-wa="retreat" href="#">{ICON_WA} Join the retreat list</a></div>
   </div>
@@ -344,11 +367,11 @@ RETREATS_BODY = f'''
     <div class="split">
       <div class="reveal">
         <span class="sec-kicker">2025 — delivered</span>
-        <h2>Our first retreat sold out<span class="sec-mirror" lang="ar" dir="rtl">ريتريت ٢٠٢٥ — اكتمل العدد</span></h2>
-        <p class="sec-lead">Guests flew in from three continents for a week of aerial practice, mobility, Dahab's slow mornings and long sea afternoons. The 2026 edition builds on everything we learned.</p>
+        <h2>Our first retreat — delivered</h2>
+        <p class="sec-lead">A week of aerial practice, mobility, Dahab's slow mornings and long sea afternoons. The next edition builds on everything we learned.</p>
         <p class="sec-lead">Accommodation is hosted with licensed partner hotels on the Dahab shore — you sleep legally, comfortably and steps from the water.</p>
       </div>
-      <div class="photo-slot reveal" style="min-height:360px" role="img" aria-label="Photo slot: 2025 retreat group photo" data-photo-slot="retreat_2025">{ART_JELLY}<span class="ps-label">Photo slot — retreat 2025 group</span></div>
+      <div class="photo-slot has-photo reveal" data-photo-slot="retreat_2025" style="min-height:360px"><img class="photo" src="/assets/img/photos/restorative.jpg" alt="Students resting in a supported restorative aerial pose" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -358,7 +381,7 @@ RETREATS_BODY = f'''
   <div class="container">
     <div class="sec-head center reveal">
       <span class="sec-kicker">What a retreat day looks like</span>
-      <h2>The rhythm<span class="sec-mirror" lang="ar" dir="rtl">إيقاع اليوم</span></h2>
+      <h2>The rhythm</h2>
     </div>
     <div class="card-grid reveal">
       <article class="card"><div class="card-art" style="background:var(--seafoam)"></div><h3>Morning</h3><p>Sunrise breath work and a full aerial practice before the heat — the desert light does half the teaching.</p></article>
@@ -381,8 +404,8 @@ RETREATS_BODY = f'''
         <ul class="checklist mt-1">
           <li>All levels welcome — including first-time flyers.</li>
           <li>Licensed hotel partners handle accommodation.</li>
-          <li>Small groups (max ~10 guests) by design.</li>
-          <li>Solo travellers are the majority, not the exception.</li>
+          <li>Small groups by design.</li>
+          <li>Solo travellers are warmly welcome.</li>
         </ul>
       </div>
     </div>
@@ -395,7 +418,6 @@ TEACHERS_BODY = f'''
   <div class="container">
     <span class="sec-kicker">Teachers</span>
     <h1>Two founders, <span class="line-accent">one shala</span></h1>
-    <p class="hero-alt-lang" lang="ar" dir="rtl">مؤسِّستان، وشالا واحدة</p>
     <p class="ph-lead">La Medusa is founded, taught and hand-sewn by two women who believe the air belongs to every body.</p>
   </div>
 </section>
@@ -408,7 +430,7 @@ TEACHERS_BODY = f'''
         <div class="teacher-body">
           <h3>Mona Shafei</h3>
           <p class="t-creds">E-RYT 200 · YACEP · Founder</p>
-          <p>Head of training &amp; product. Mona leads the AYTTC teacher training (cohorts delivered April 2025 and April 2026), designs the retreats, teaches hammock mobility — and makes the hammocks themselves under <a href="/hammocks/">Hammocks by Mona Shafei</a>. Her wider practice spans Chi Nei Tsang and years of teaching across Egypt.</p>
+          <p>Head of training &amp; product. Mona leads the AYTTC teacher training (cohorts delivered April 2025 and April 2026), designs the retreats, teaches hammock mobility — and makes the hammocks themselves under <a href="/hammocks/">Hammocks by Mona Shafei</a>. Her wider practice spans Chi Nei Tsang bodywork.</p>
           <p class="mt-1"><a href="https://www.instagram.com/yogawith_mona/" target="_blank" rel="noopener">@yogawith_mona</a></p>
         </div>
       </article>
@@ -425,12 +447,18 @@ TEACHERS_BODY = f'''
   </div>
 </section>
 
+
+<section class="section">
+  <div class="container">
+    <div class="photo-slot has-photo reveal" style="min-height:420px"><img class="photo" src="/assets/img/photos/group-shala.jpg" alt="Teachers and students together in front of the La Medusa wall" loading="lazy"></div>
+  </div>
+</section>
 {cocoon("#F1EEF8")}
 <section class="section section-tint-lav">
   <div class="container">
     <div class="quote-band reveal">
-      <blockquote>“The shala is calm on purpose. We begin with gentle stretching, build to inversions, and end in a swaying cocoon.”</blockquote>
-      <cite>Mona &amp; Reem — the La Medusa method</cite>
+      <blockquote>“Calm on purpose: begin with gentle stretching, build to inversions, end in a swaying cocoon.”</blockquote>
+      <cite>The La Medusa method</cite>
       <p class="mt-2"><a class="btn btn-primary" data-wa="classes" href="#">{ICON_WA} Take a class with us</a></p>
     </div>
   </div>
@@ -442,8 +470,7 @@ HAMMOCKS_BODY = f'''
   <div class="container">
     <span class="sec-kicker">Hammocks by Mona Shafei</span>
     <h1>Handcrafted hammocks, tailored to <span class="line-accent">your every move</span></h1>
-    <p class="hero-alt-lang" lang="ar" dir="rtl">أراجيح مصنوعة يدوياً، على مقاس حركتك</p>
-    <p class="ph-lead">Every La Medusa hammock is cut, sewn and load-tested by Mona in Dahab — personalized design, custom colors, made for real practice.</p>
+    <p class="ph-lead">Every La Medusa hammock is cut and sewn by Mona in Dahab — woven with 70% natural cotton, personalized design, custom colors, made for real practice.</p>
     <div class="hero-ctas"><a class="btn btn-primary" data-wa="hammocks" href="#">{ICON_WA} Ask for the catalog</a></div>
   </div>
 </section>
@@ -456,8 +483,8 @@ HAMMOCKS_BODY = f'''
       <article class="card reveal"><div class="card-art" style="background:var(--sand-2)"></div><h3>Made to be trusted</h3><p>The same fabric and rated hardware standards we hang our own students from — because we do, every day, in the shala.</p><a class="card-cta" href="/accessibility/">Our safety standards →</a></article>
     </div>
     <div class="two-col mt-3">
-      <div class="photo-slot reveal" role="img" aria-label="Photo slot: hammock fabrics and colors" data-photo-slot="hammocks_fabric">{ART_SILK}<span class="ps-label">Photo slot — fabric colors</span></div>
-      <div class="photo-slot reveal" role="img" aria-label="Photo slot: Mona sewing a hammock" data-photo-slot="hammocks_atelier">{ART_SILK}<span class="ps-label">Photo slot — the atelier</span></div>
+      <div class="photo-slot has-photo reveal" data-photo-slot="hammocks_fabric"><img class="photo" src="/assets/img/photos/fabric-yellow.jpg" alt="Yellow handmade aerial hammocks hanging against a blue wall" loading="lazy"></div>
+      <div class="photo-slot has-photo reveal" data-photo-slot="hammocks_atelier"><img class="photo" src="/assets/img/photos/brand-tote.jpg" alt="A Hammocks by Mona Shafei tote bag" loading="lazy"></div>
     </div>
     <div class="note-soft mt-3">Pricing and current color runs live in the WhatsApp catalog — message <strong>“HAMMOCKS”</strong> and Mona will send it over. Follow <a href="https://www.instagram.com/hammocksbymonashafei/" target="_blank" rel="noopener">@hammocksbymonashafei</a> for new collections.</div>
   </div>
@@ -469,7 +496,6 @@ ACCESS_BODY = f'''
   <div class="container">
     <span class="sec-kicker">The promise</span>
     <h1>Every body <span class="line-accent">flies</span></h1>
-    <p class="hero-alt-lang" lang="ar" dir="rtl">كل جسدٍ يطير</p>
     <p class="ph-lead">“Every body is welcome; modify the pose to the person” isn't a slogan we added — it's the teaching standard the shala was built on. Here is what it means in practice, published so you can hold us to it.</p>
   </div>
 </section>
@@ -482,7 +508,7 @@ ACCESS_BODY = f'''
       <li class="tl-now"><span class="tl-when">Q4 2026</span><h3>Sliding-scale pricing</h3><p>Three self-selected tiers — community-supporter, standard, supported — no proof of need asked, ever. Locals stay in the room in a tourist economy.</p></li>
       <li class="tl-now"><span class="tl-when">Q4 2026</span><h3>Prenatal &amp; recovery pathway</h3><p>Group aerial classes are contraindicated in pregnancy, so we offer private, medically-cleared prenatal-adapted work — and a post-injury track with your GP's letter.</p></li>
       <li><span class="tl-when">Q1 2027</span><h3>Access audit &amp; low-sensory slot</h3><p>Entrance, bathroom and mounting-aid audit; low-hammock formats for limited mobility; one quiet, low-sensory class slot each week.</p></li>
-      <li><span class="tl-when">2027</span><h3>Adaptive aerial — a first for Egypt</h3><p>A wheelchair-user aerial program modelled on proven adaptive programs abroad — silks for spinal decompression, trained-assistant protocols, one monthly session to start.</p></li>
+      <li><span class="tl-when">2027</span><h3>Adaptive aerial</h3><p>A wheelchair-user aerial program modelled on proven adaptive programs abroad — silks for spinal decompression, trained-assistant protocols, one monthly session to start. We aim to make it a first for Egypt.</p></li>
     </ul>
   </div>
 </section>
@@ -492,7 +518,7 @@ ACCESS_BODY = f'''
   <div class="container">
     <div class="sec-head reveal">
       <span class="sec-kicker">Safety is the brand</span>
-      <h2>The non-negotiables<span class="sec-mirror" lang="ar" dir="rtl">قواعد لا نتنازل عنها</span></h2>
+      <h2>The non-negotiables</h2>
       <p class="sec-lead">Aerial yoga is safe the way flying is safe: because of systems, not luck.</p>
     </div>
     <div class="card-grid reveal">
@@ -520,7 +546,6 @@ CONTACT_BODY = f'''
   <div class="container">
     <span class="sec-kicker">Contact</span>
     <h1>Find us where the mountains <span class="line-accent">meet the sea</span></h1>
-    <p class="hero-alt-lang" lang="ar" dir="rtl">تجدوننا حيث تلتقي الجبال بالبحر</p>
     <p class="ph-lead">Everything runs through WhatsApp — booking, questions, teacher training, hammock orders. One number, real humans.</p>
   </div>
 </section>
@@ -629,7 +654,6 @@ ACCOUNT_BODY = '''
   <div class="container">
     <span class="sec-kicker">Members</span>
     <h1>Your <span class="line-accent">shala account</span></h1>
-    <p class="hero-alt-lang" lang="ar" dir="rtl">حسابك في الشالا</p>
     <p class="ph-lead">Sign in to see the live schedule, member announcements and retreat dates before anyone else.</p>
   </div>
 </section>

@@ -3,15 +3,15 @@
 from common import ART_JELLY, ART_SILK, ICON_WA, art_horizon, cocoon, DOMAIN
 
 CLASSES_AR = [
-    ("تدفق هوائي", "فينياسا بقيادة النَفَس داخل الأرجوحة وخارجها — انسيابٌ وانحناءٌ وختامٌ رأساً على عقب.", "575", "كل المستويات", "sea"),
-    ("مدخل إلى السيلك", "رحلتك الأولى في الهواء. تعرّفي على القماش، ابني الثقة، واختمي متأرجحةً في الشرنقة.", "500", "مبتدئات", "lav"),
-    ("هوائي استرخائي", "أوضاع بطيئة ومدعومة. الأرجوحة تحملك ليستطيع جهازك العصبي أن يرتاح.", "550", "كل المستويات", "sea"),
-    ("مرونة الأرجوحة", "عمل عميق على الوركين والعمود الفقري والكتفين، والأرجوحة أداتك.", "650", "كل المستويات", "lav"),
-    ("هوائي للأطفال واليافعين", "لعبٌ وقوة وثقة في الهواء — بأمانٍ وإشرافٍ وفرح.", "500", "من ٦ إلى ١٥ سنة", "sand"),
-    ("هوائي علاجي", "تخفيف ضغط لطيف وإطلاق موجّه لظهورٍ تجلس طويلاً خلف المكاتب.", "600", "كل المستويات", "sea"),
-    ("سلسلة الهوب الهوائي", "فنٌّ وقوة على الليرا — سلسلة تصاعدية على عدة أسابيع.", "600", "تصاعدية", "lav"),
-    ("سيلك متقدم", "تقنيات قماش متقدمة لمن اعتدن التحليق — لفّات وفنّ بلا سقطات.", "650", "متقدمات", "sea"),
-    ("فينياسا وهاثا (على السجادة)", "حصص أرضية تبني النَفَس والأساس الذي تنمو منه ممارستك الهوائية.", "500", "كل المستويات", "sand"),
+    ("تدفق هوائي", "فينياسا بقيادة النَفَس داخل الأرجوحة وخارجها — انسيابٌ وانحناءٌ وختامٌ رأساً على عقب.", "٥٠٠–٦٥٠", "كل المستويات", "sea"),
+    ("مدخل إلى السيلك", "رحلتك الأولى في الهواء. تعرّفي على القماش، ابني الثقة، واختمي متأرجحةً في الشرنقة.", "٥٠٠", "مبتدئات", "lav"),
+    ("هوائي استرخائي", "أوضاع بطيئة ومدعومة. الأرجوحة تحملك ليستطيع جهازك العصبي أن يرتاح.", "٥٠٠–٦٥٠", "كل المستويات", "sea"),
+    ("مرونة الأرجوحة", "عمل عميق على الوركين والعمود الفقري والكتفين، والأرجوحة أداتك.", "٦٥٠", "كل المستويات", "lav"),
+    ("هوائي للأطفال واليافعين", "لعبٌ وقوة وثقة في الهواء — بأمانٍ وإشرافٍ وفرح.", "٥٠٠–٦٥٠", "من ٦ إلى ١٥ سنة", "sand"),
+    ("هوائي علاجي", "تخفيف ضغط لطيف وإطلاق موجّه لظهورٍ تجلس طويلاً خلف المكاتب.", "٥٠٠–٦٥٠", "كل المستويات", "sea"),
+    ("سلسلة الهوب الهوائي", "فنٌّ وقوة على الليرا — سلسلة تصاعدية على عدة أسابيع.", "٥٠٠–٦٥٠", "تصاعدية", "lav"),
+    ("سيلك متقدم", "تقنيات قماش متقدمة لمن اعتدن التحليق — لفّات وفنّ بلا سقطات.", "٥٠٠–٦٥٠", "متقدمات", "sea"),
+    ("فينياسا وهاثا (على السجادة)", "حصص أرضية تبني النَفَس والأساس الذي تنمو منه ممارستك الهوائية.", "٥٠٠–٦٥٠", "كل المستويات", "sand"),
 ]
 
 SCHEDULE_AR = [
@@ -46,7 +46,6 @@ HOME_BODY = f'''
   <div class="hero-inner">
     <p class="hero-kicker">يوغا هوائية · العسلة، دهب · جنوب سيناء</p>
     <h1>تحرّكي بجمال.<br>اشعري بالحرية. <span class="line-accent">حلّقي برشاقة.</span></h1>
-    <p class="hero-alt-lang" lang="en" dir="ltr">Move beautifully. Feel freely. Fly gracefully.</p>
     <p class="hero-sub">استوديو هوائي هادئ بين جبال سيناء والبحر الأحمر. تبدأ الحصص بتمددٍ لطيف، وتتصاعد إلى الانقلابات، وتُختم بتأرجحٍ داخل الشرنقة.</p>
     <div class="hero-ctas">
       <a class="btn btn-primary" data-wa="classes" href="#">{ICON_WA} احجزي عبر واتساب</a>
@@ -62,15 +61,12 @@ HOME_BODY = f'''
     <div class="split">
       <div class="reveal">
         <span class="sec-kicker">الشالا</span>
-        <h2>حيث تلتقي الصحراء بالبحر — وتلتقين أنتِ بالهواء<span class="sec-mirror" lang="en" dir="ltr">Where the desert meets the sea</span></h2>
+        <h2>حيث تلتقي الصحراء بالبحر — وتلتقين أنتِ بالهواء</h2>
         <p class="sec-lead">لا ميدوزا هي استوديو اليوغا الهوائية في دهب. ممارستنا ناعمة عن قصد: لا سقطات ولا ثقافة «الحركات البهلوانية أولاً» — فقط النَفَس والقماش واكتشافٌ بطيء بأن جسدك قادر على التعلّق والانحناء والتحليق.</p>
         <p class="sec-lead">وتنتهي كل حصة بالطريقة نفسها: ملفوفةً في الأرجوحة، تتمايلين كقنديل بحرٍ في ماءٍ ساكن.</p>
         <a class="btn btn-ghost mt-2" href="/ar/teachers/">تعرّفي على معلّماتك</a>
       </div>
-      <div class="photo-slot reveal" style="min-height:380px" role="img" aria-label="مكان صورة: داخل الاستوديو أثناء ختام الشرنقة" data-photo-slot="home_studio">
-        {ART_JELLY}
-        <span class="ps-label">مكان صورة — الاستوديو · ختام الشرنقة</span>
-      </div>
+      <div class="photo-slot has-photo reveal" data-photo-slot="home_studio" style="min-height:380px"><img class="photo" src="/assets/img/photos/studio-aerialist.jpg" style="object-position:center 30%" alt="ممارِسة هوائية في وضعية كاملة تحت شعار لا ميدوزا المرسوم في الشالا" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -80,7 +76,7 @@ HOME_BODY = f'''
   <div class="container">
     <div class="sec-head center reveal">
       <span class="sec-kicker">الحصص</span>
-      <h2>حصص مصمّمة لكل المستويات — كبار وصغار<span class="sec-mirror" lang="en" dir="ltr">Tailored classes for all levels</span></h2>
+      <h2>حصص مصمّمة لكل المستويات — كبار وصغار</h2>
       <p class="sec-lead">حصص من ٩٠ دقيقة بين ٥٠٠ و٦٥٠ جنيهاً. مجموعات صغيرة، وعينا المعلّمة على كل جسد.</p>
     </div>
     <div class="card-grid">
@@ -105,13 +101,13 @@ HOME_BODY = f'''
   <div class="container">
     <div class="sec-head center reveal">
       <span class="sec-kicker">تدريب المعلمين</span>
-      <h2>دورة تدريب معلمات اليوغا الهوائية — مثبتة لا موعودة<span class="sec-mirror" lang="en" dir="ltr">The AYTTC — proven, not promised</span></h2>
+      <h2>دورة تدريب معلمات اليوغا الهوائية — مثبتة لا موعودة</h2>
     </div>
     <div class="proof-row reveal">
       <div class="proof"><div class="p-num">٢</div><div class="p-label">دفعتان تخرّجتا — أبريل ٢٠٢٥ وأبريل ٢٠٢٦</div></div>
       <div class="proof"><div class="p-num">يوليو ٢٦</div><div class="p-label">الدفعة القادمة — التسجيل جارٍ الآن</div></div>
       <div class="proof"><div class="p-num">E-RYT 200</div><div class="p-label">بقيادة منى شافعي، YACEP</div></div>
-      <div class="proof"><div class="p-num">الأولى</div><div class="p-label">أول دورة متخصصة لتدريب معلمي اليوغا الهوائية في سيناء</div></div>
+      <div class="proof"><div class="p-num">سيناء</div><div class="p-label">الدورة المتخصصة لتدريب معلمي اليوغا الهوائية في سيناء</div></div>
     </div>
     <p class="center mt-3">
       <span class="badge-enrolling">دفعة يوليو ٢٠٢٦ — التسجيل جارٍ الآن</span><br><br>
@@ -124,14 +120,11 @@ HOME_BODY = f'''
 <section class="section section-tint-sand">
   <div class="container">
     <div class="split">
-      <div class="photo-slot reveal" style="min-height:340px;background:linear-gradient(160deg,#F6F0E3, #EAF6F4)" role="img" aria-label="مكان صورة: مجموعة الريتريت عند الغروب" data-photo-slot="retreat_home">
-        {ART_SILK}
-        <span class="ps-label">مكان صورة — ريتريت ٢٠٢٥ · حصة الغروب</span>
-      </div>
+      <div class="photo-slot has-photo reveal" data-photo-slot="retreat_home" style="min-height:340px"><img class="photo" src="/assets/img/photos/pergola-hammocks.jpg" alt="أراجيح هوائية ملوّنة معلّقة في الشالا المفتوحة" loading="lazy"></div>
       <div class="reveal">
         <span class="sec-kicker">الريتريتات</span>
-        <h2>حلّقي حيث تنحدر الجبال إلى البحر<span class="sec-mirror" lang="en" dir="ltr">Fly where the mountains fall into the sea</span></h2>
-        <p class="sec-lead">اكتمل عدد ريتريت ٢٠٢٥ بضيوفٍ من ثلاث قارات. أيام من الممارسة الهوائية والنَفَس وماء البحر — بإقامةٍ لدى فنادق شريكة مرخّصة على شاطئ دهب.</p>
+        <h2>حلّقي حيث تنحدر الجبال إلى البحر</h2>
+        <p class="sec-lead">أقمنا أول ريتريت لنا في ٢٠٢٥ — أيام من الممارسة الهوائية والنَفَس وماء البحر، بإقامةٍ لدى فنادق شريكة مرخّصة على شاطئ دهب.</p>
         <a class="btn btn-ghost mt-2" href="/ar/retreats/">الريتريتات والمواعيد القادمة</a>
       </div>
     </div>
@@ -157,6 +150,39 @@ HOME_BODY = f'''
   </div>
 </section>
 
+
+{cocoon("#EAF6F4")}
+<section class="section section-tint-sea">
+  <div class="container">
+    <div class="sec-head center reveal">
+      <span class="sec-kicker">الحياة في الشالا</span>
+      <h2>حصص حقيقية، وناس حقيقيون، وتحليق حقيقي</h2>
+      <p class="sec-lead">كل الصور أدناه التُقطت في استوديونا المفتوح في العسلة.</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <img class="g-wide" src="/assets/img/photos/group-shala.jpg" alt="مجموعة مبتهجة أمام شعار لا ميدوزا بعد الحصة" loading="lazy">
+      <img src="/assets/img/photos/community-circle.jpg" alt="مجتمع الشالا في حلقة تحت الأقمشة" loading="lazy">
+      <img src="/assets/img/photos/assisted-group.jpg" alt="طالبات يساعدن بعضهن في تمرين هوائي جماعي" loading="lazy">
+      <img src="/assets/img/photos/inversion.jpg" alt="طالبة معلّقة رأساً على عقب في أرجوحة هوائية" loading="lazy">
+      <img src="/assets/img/photos/partner-practice.jpg" alt="طالبتان تمارسان وضعية هوائية ثنائية" loading="lazy">
+    </div>
+    <p class="center mt-3"><a class="btn btn-ghost" href="https://www.instagram.com/theaerialistshala/" target="_blank" rel="noopener">المزيد على إنستغرام — @theaerialistshala</a></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container center">
+    <div class="sec-head center reveal">
+      <span class="sec-kicker">شاهدي</span>
+      <h2>الشالا في حركة</h2>
+    </div>
+    <div class="ig-embed-wrap reveal">
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DaVlvwAoZu4/" data-instgrm-version="14" style="margin:0 auto; max-width:540px; width:100%"></blockquote>
+    </div>
+  </div>
+</section>
+<script async src="https://www.instagram.com/embed.js"></script>
+
 {cocoon("#EAF6F4")}
 <section class="section section-tint-sea">
   <div class="container center reveal">
@@ -175,7 +201,6 @@ CLASSES_BODY = f'''
   <div class="container">
     <span class="sec-kicker">الحصص والجدول</span>
     <h1>حصص مصمّمة <span class="line-accent">لكل جسد</span></h1>
-    <p class="hero-alt-lang" lang="en" dir="ltr">Tailored classes for every body</p>
     <p class="ph-lead">حصص من ٩٠ دقيقة في أجواء هادئة ومجموعات صغيرة. الحجز المسبق مطلوب — راسلينا وسنحجز لك أرجوحتك.</p>
     <div class="hero-ctas"><a class="btn btn-primary" data-wa="classes" href="#">{ICON_WA} احجزي حصة</a></div>
   </div>
@@ -186,8 +211,8 @@ CLASSES_BODY = f'''
   <div class="container">
     <div class="sec-head reveal">
       <span class="sec-kicker">القائمة</span>
-      <h2>تسع طرق للتحليق<span class="sec-mirror" lang="en" dir="ltr">Nine ways to fly</span></h2>
-      <p class="sec-lead">كل الحصص الهوائية تشمل شرحاً كاملاً للسلامة، ومناطق هبوط مبطّنة، وتجهيزات تفحصها المعلّمة يومياً. الأسعار للفرد في الحصة الواحدة (٩٠ دقيقة) بالجنيه المصري.</p>
+      <h2>تسع طرق للتحليق</h2>
+      <p class="sec-lead">كل الحصص الهوائية تشمل شرحاً كاملاً للسلامة، ومناطق هبوط مبطّنة، وتجهيزات تفحصها المعلّمة يومياً. الحصص بين ٥٠٠ و٦٥٠ جنيهاً للفرد (٩٠ دقيقة)، ويُؤكَّد سعر كل حصة عند الحجز.</p>
     </div>
     <div class="card-grid">{class_cards(CLASSES_AR)}</div>
     <div class="note-soft mt-3">يُؤكَّد الجدول والأسعار عند الحجز — وتُعلن أسعار المقيمين والزوّار وباقات الحصص عبر واتساب. أماكن بالتسعير التدرّجي متاحة في كل حصة: اطّلعي على <a href="/ar/accessibility/">وعد الإتاحة</a>.</div>
@@ -199,7 +224,7 @@ CLASSES_BODY = f'''
   <div class="container">
     <div class="sec-head center reveal">
       <span class="sec-kicker">هذا الأسبوع</span>
-      <h2>جدول الأسبوع<span class="sec-mirror" lang="en" dir="ltr">The weekly schedule</span></h2>
+      <h2>جدول الأسبوع</h2>
       <p class="sec-lead" data-schedule-status>يحدّث الاستوديو هذا الجدول مباشرةً — وتُعلن التغييرات أيضاً على واتساب وقصص إنستغرام.</p>
     </div>
     <div class="schedule-wrap reveal">
@@ -230,7 +255,7 @@ CLASSES_BODY = f'''
       </div>
       <div class="reveal">
         <h3>الأطفال يطيرون أيضاً</h3>
-        <p class="sec-lead">حصص أسبوعية للأطفال واليافعين تبني القوة والتركيز والفرح الجريء — بمعايير السلامة نفسها في حصص الكبار، والأهل مرحّب بهم للمشاهدة.</p>
+        <p class="sec-lead">حصص الأطفال واليافعين تبني القوة والتركيز والفرح الجريء — بمعايير السلامة نفسها في حصص الكبار.</p>
         <a class="btn btn-ghost mt-2" data-wa="kids" href="#">اسألي عن حصص الأطفال</a>
       </div>
     </div>
@@ -243,7 +268,6 @@ AYTTC_BODY = f'''
   <div class="container">
     <span class="badge-enrolling">دفعة يوليو ٢٠٢٦ — التسجيل جارٍ الآن</span>
     <h1 class="mt-2">كوني معلّمة يوغا هوائية — <span class="line-accent">في دهب</span></h1>
-    <p class="hero-alt-lang" lang="en" dir="ltr">Become an aerial yoga teacher — in Dahab</p>
     <p class="ph-lead">دورة AYTTC هي التدريب المتخصص لمعلمي اليوغا الهوائية في سيناء: دفعات صغيرة، وتدريس حقيقي، ومنهج مبني على دليلنا الخاص «Pose &amp; Practice Manual».</p>
     <div class="hero-ctas">
       <a class="btn btn-primary" data-wa="ayttc" href="#">{ICON_WA} احجزي مكانك</a>
@@ -257,17 +281,17 @@ AYTTC_BODY = f'''
   <div class="container">
     <div class="sec-head center reveal">
       <span class="sec-kicker">سجل الإنجاز</span>
-      <h2>مثبتة، لا موعودة<span class="sec-mirror" lang="en" dir="ltr">Proven, not promised</span></h2>
+      <h2>مثبتة، لا موعودة</h2>
     </div>
     <div class="proof-row reveal">
       <div class="proof"><div class="p-num">أبريل ٢٥</div><div class="p-label">الدفعة الأولى تخرّجت</div></div>
       <div class="proof"><div class="p-num">أبريل ٢٦</div><div class="p-label">الدفعة الثانية تخرّجت</div></div>
       <div class="proof"><div class="p-num">يوليو ٢٦</div><div class="p-label">الدفعة الثالثة — التسجيل جارٍ</div></div>
-      <div class="proof"><div class="p-num">٨</div><div class="p-label">حد أقصى للمتدربات في الدفعة — الجميع يُدرّس والجميع يُرى</div></div>
+      <div class="proof"><div class="p-num">صغيرة</div><div class="p-label">دفعات صغيرة — الجميع يُدرّس والجميع يُرى</div></div>
     </div>
     <div class="two-col mt-3">
-      <div class="photo-slot reveal" role="img" aria-label="مكان صورة: تخرج دفعة أبريل ٢٠٢٥" data-photo-slot="ayttc_2025">{ART_SILK}<span class="ps-label">مكان صورة — دفعة أبريل ٢٠٢٥</span></div>
-      <div class="photo-slot reveal" role="img" aria-label="مكان صورة: تدريب دفعة أبريل ٢٠٢٦" data-photo-slot="ayttc_2026">{ART_SILK}<span class="ps-label">مكان صورة — دفعة أبريل ٢٠٢٦</span></div>
+      <div class="photo-slot has-photo reveal" data-photo-slot="ayttc_2025"><img class="photo" src="/assets/img/photos/practice-assist.jpg" alt="معلّمة تقدّم تعديلاً يدوياً أثناء الممارسة الهوائية" loading="lazy"></div>
+      <div class="photo-slot has-photo reveal" data-photo-slot="ayttc_2026"><img class="photo" src="/assets/img/photos/teaching-spot.jpg" alt="طالبات يتابعن معلّمة وهي تساند انقلاباً في الاستوديو" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -277,7 +301,7 @@ AYTTC_BODY = f'''
   <div class="container">
     <div class="sec-head reveal">
       <span class="sec-kicker">المنهج</span>
-      <h2>ماذا ستتعلمين<span class="sec-mirror" lang="en" dir="ltr">What you'll learn</span></h2>
+      <h2>ماذا ستتعلمين</h2>
       <p class="sec-lead">منهج مبني على دليل لا ميدوزا وبقيادة منى شافعي (E-RYT 200، YACEP) — تدريب يُحتسب ضمن ساعات التعليم المستمر لدى Yoga Alliance.</p>
     </div>
     <ul class="timeline reveal">
@@ -319,7 +343,6 @@ RETREATS_BODY = f'''
   <div class="container">
     <span class="sec-kicker">الريتريتات</span>
     <h1>أيام من الهواء والنَفَس <span class="line-accent">وماء البحر</span></h1>
-    <p class="hero-alt-lang" lang="en" dir="ltr">Days of air, breath and salt water</p>
     <p class="ph-lead">ريتريتات يوغا هوائية حيث تنحدر صحراء سيناء إلى البحر الأحمر — تحليق في الصباح، وبحرٌ في الظهيرة، وشرنقة عند الغروب.</p>
     <div class="hero-ctas"><a class="btn btn-primary" data-wa="retreat" href="#">{ICON_WA} انضمي لقائمة الريتريت</a></div>
   </div>
@@ -331,11 +354,11 @@ RETREATS_BODY = f'''
     <div class="split">
       <div class="reveal">
         <span class="sec-kicker">٢٠٢٥ — أُنجز</span>
-        <h2>اكتمل عدد أول ريتريت لنا<span class="sec-mirror" lang="en" dir="ltr">Our first retreat sold out</span></h2>
-        <p class="sec-lead">وصل الضيوف من ثلاث قارات لأسبوعٍ من الممارسة الهوائية والمرونة وصباحات دهب البطيئة وبعد الظهر الطويل عند البحر. نسخة ٢٠٢٦ تبني على كل ما تعلمناه.</p>
+        <h2>أول ريتريت لنا — أُنجز</h2>
+        <p class="sec-lead">أسبوعٌ من الممارسة الهوائية والمرونة وصباحات دهب البطيئة وبعد الظهر الطويل عند البحر. والنسخة القادمة تبني على كل ما تعلمناه.</p>
         <p class="sec-lead">الإقامة لدى فنادق شريكة مرخّصة على شاطئ دهب — تنامين قانونياً ومريحةً وعلى خطواتٍ من الماء.</p>
       </div>
-      <div class="photo-slot reveal" style="min-height:360px" role="img" aria-label="مكان صورة: صورة جماعية لريتريت ٢٠٢٥" data-photo-slot="retreat_2025">{ART_JELLY}<span class="ps-label">مكان صورة — مجموعة ريتريت ٢٠٢٥</span></div>
+      <div class="photo-slot has-photo reveal" data-photo-slot="retreat_2025" style="min-height:360px"><img class="photo" src="/assets/img/photos/restorative.jpg" alt="طالبات في وضعية استرخائية مدعومة" loading="lazy"></div>
     </div>
   </div>
 </section>
@@ -345,7 +368,7 @@ RETREATS_BODY = f'''
   <div class="container">
     <div class="sec-head center reveal">
       <span class="sec-kicker">شكل اليوم في الريتريت</span>
-      <h2>الإيقاع<span class="sec-mirror" lang="en" dir="ltr">The rhythm</span></h2>
+      <h2>الإيقاع</h2>
     </div>
     <div class="card-grid reveal">
       <article class="card"><div class="card-art" style="background:var(--seafoam)"></div><h3>الصباح</h3><p>تمارين نَفَس مع الشروق وممارسة هوائية كاملة قبل الحر — ضوء الصحراء يقوم بنصف التدريس.</p></article>
@@ -368,8 +391,8 @@ RETREATS_BODY = f'''
         <ul class="checklist mt-1">
           <li>كل المستويات مرحّب بها — حتى من لم تحلّق من قبل.</li>
           <li>فنادق شريكة مرخّصة تتولى الإقامة.</li>
-          <li>مجموعات صغيرة (حوالي ١٠ ضيوف كحد أقصى) عن قصد.</li>
-          <li>المسافرات المنفردات هن الأغلبية لا الاستثناء.</li>
+          <li>مجموعات صغيرة عن قصد.</li>
+          <li>المسافرات المنفردات مرحّبٌ بهن بدفء.</li>
         </ul>
       </div>
     </div>
@@ -382,7 +405,6 @@ TEACHERS_BODY = f'''
   <div class="container">
     <span class="sec-kicker">المعلمات</span>
     <h1>مؤسِّستان، <span class="line-accent">وشالا واحدة</span></h1>
-    <p class="hero-alt-lang" lang="en" dir="ltr">Two founders, one shala</p>
     <p class="ph-lead">لا ميدوزا أسّستها ودرّست فيها وخاطت أراجيحها امرأتان تؤمنان بأن الهواء حقٌّ لكل جسد.</p>
   </div>
 </section>
@@ -395,7 +417,7 @@ TEACHERS_BODY = f'''
         <div class="teacher-body">
           <h3>منى شافعي</h3>
           <p class="t-creds">E-RYT 200 · YACEP · مؤسِّسة</p>
-          <p>رئيسة التدريب والمنتجات. تقود منى دورة تدريب المعلمات AYTTC (دفعتا أبريل ٢٠٢٥ وأبريل ٢٠٢٦)، وتصمم الريتريتات، وتدرّس مرونة الأرجوحة — وتصنع الأراجيح بنفسها تحت اسم <a href="/ar/hammocks/">أراجيح منى شافعي</a>. تمتد ممارستها إلى تشي ني تسانغ وسنوات من التدريس في مصر.</p>
+          <p>رئيسة التدريب والمنتجات. تقود منى دورة تدريب المعلمات AYTTC (دفعتا أبريل ٢٠٢٥ وأبريل ٢٠٢٦)، وتصمم الريتريتات، وتدرّس مرونة الأرجوحة — وتصنع الأراجيح بنفسها تحت اسم <a href="/ar/hammocks/">أراجيح منى شافعي</a>. تمتد ممارستها إلى علاج تشي ني تسانغ.</p>
           <p class="mt-1"><a href="https://www.instagram.com/yogawith_mona/" target="_blank" rel="noopener">@yogawith_mona</a></p>
         </div>
       </article>
@@ -412,12 +434,18 @@ TEACHERS_BODY = f'''
   </div>
 </section>
 
+
+<section class="section">
+  <div class="container">
+    <div class="photo-slot has-photo reveal" style="min-height:420px"><img class="photo" src="/assets/img/photos/group-shala.jpg" alt="معلّمات وطالبات أمام جدار لا ميدوزا" loading="lazy"></div>
+  </div>
+</section>
 {cocoon("#F1EEF8")}
 <section class="section section-tint-lav">
   <div class="container">
     <div class="quote-band reveal">
-      <blockquote>«الشالا هادئة عن قصد. نبدأ بتمددٍ لطيف، ونتصاعد إلى الانقلابات، ونختم بشرنقةٍ تتمايل.»</blockquote>
-      <cite>منى وريم — طريقة لا ميدوزا</cite>
+      <blockquote>«هدوءٌ عن قصد: نبدأ بتمددٍ لطيف، ونتصاعد إلى الانقلابات، ونختم بشرنقةٍ تتمايل.»</blockquote>
+      <cite>طريقة لا ميدوزا</cite>
       <p class="mt-2"><a class="btn btn-primary" data-wa="classes" href="#">{ICON_WA} خذي حصة معنا</a></p>
     </div>
   </div>
@@ -429,8 +457,7 @@ HAMMOCKS_BODY = f'''
   <div class="container">
     <span class="sec-kicker">أراجيح منى شافعي</span>
     <h1>أراجيح مصنوعة يدوياً، على مقاس <span class="line-accent">حركتك</span></h1>
-    <p class="hero-alt-lang" lang="en" dir="ltr">Handcrafted hammocks, tailored to your every move</p>
-    <p class="ph-lead">كل أرجوحة من لا ميدوزا تقصّها منى وتخيطها وتختبر حمولتها في دهب — تصميم شخصي، وألوان مخصصة، وصناعة لممارسةٍ حقيقية.</p>
+    <p class="ph-lead">كل أرجوحة من لا ميدوزا تقصّها منى وتخيطها في دهب — منسوجة من قطنٍ طبيعي بنسبة ٧٠٪، بتصميم شخصي وألوان مخصصة، لممارسةٍ حقيقية.</p>
     <div class="hero-ctas"><a class="btn btn-primary" data-wa="hammocks" href="#">{ICON_WA} اطلبي الكتالوج</a></div>
   </div>
 </section>
@@ -443,8 +470,8 @@ HAMMOCKS_BODY = f'''
       <article class="card reveal"><div class="card-art" style="background:var(--sand-2)"></div><h3>مصنوعة لتُوثَق بها</h3><p>نفس القماش ومعايير المعدات المصنّفة التي نعلّق بها طالباتنا — لأننا نفعل ذلك كل يوم في الشالا.</p><a class="card-cta" href="/ar/accessibility/">معايير السلامة ←</a></article>
     </div>
     <div class="two-col mt-3">
-      <div class="photo-slot reveal" role="img" aria-label="مكان صورة: أقمشة الأراجيح وألوانها" data-photo-slot="hammocks_fabric">{ART_SILK}<span class="ps-label">مكان صورة — ألوان الأقمشة</span></div>
-      <div class="photo-slot reveal" role="img" aria-label="مكان صورة: منى تخيط أرجوحة" data-photo-slot="hammocks_atelier">{ART_SILK}<span class="ps-label">مكان صورة — المشغل</span></div>
+      <div class="photo-slot has-photo reveal" data-photo-slot="hammocks_fabric"><img class="photo" src="/assets/img/photos/fabric-yellow.jpg" alt="أراجيح صفراء مصنوعة يدوياً على جدار أزرق" loading="lazy"></div>
+      <div class="photo-slot has-photo reveal" data-photo-slot="hammocks_atelier"><img class="photo" src="/assets/img/photos/brand-tote.jpg" alt="حقيبة تحمل شعار أراجيح منى شافعي" loading="lazy"></div>
     </div>
     <div class="note-soft mt-3">الأسعار والألوان المتاحة حالياً في كتالوج واتساب — أرسلي كلمة <strong>«HAMMOCKS»</strong> وسترسل لك منى الكتالوج. تابعي <a href="https://www.instagram.com/hammocksbymonashafei/" target="_blank" rel="noopener">@hammocksbymonashafei</a> للتشكيلات الجديدة.</div>
   </div>
@@ -456,7 +483,6 @@ ACCESS_BODY = f'''
   <div class="container">
     <span class="sec-kicker">الوعد</span>
     <h1>كل جسدٍ <span class="line-accent">يطير</span></h1>
-    <p class="hero-alt-lang" lang="en" dir="ltr">Every body flies</p>
     <p class="ph-lead">«كل جسدٍ مرحّبٌ به؛ نعدّل الوضعية على مقاس الإنسان» ليست شعاراً أضفناه — بل المعيار الذي بُنيت عليه الشالا. هذا ما يعنيه عملياً، منشوراً لتحاسبونا عليه.</p>
   </div>
 </section>
@@ -469,7 +495,7 @@ ACCESS_BODY = f'''
       <li class="tl-now"><span class="tl-when">الربع الأخير ٢٠٢٦</span><h3>التسعير التدرّجي</h3><p>ثلاث فئات تختارينها بنفسك — داعمة للمجتمع، قياسية، مدعومة — دون طلب أي إثبات، أبداً. ليبقى أهل البلد في الحصة وسط اقتصادٍ سياحي.</p></li>
       <li class="tl-now"><span class="tl-when">الربع الأخير ٢٠٢٦</span><h3>مسار الحمل والتعافي</h3><p>الحصص الجماعية غير مناسبة أثناء الحمل، لذلك نقدم عملاً خاصاً مكيّفاً بموافقة طبية — ومساراً للتعافي بعد الإصابة بخطابٍ من طبيبك.</p></li>
       <li><span class="tl-when">الربع الأول ٢٠٢٧</span><h3>تدقيق الوصول وحصة هادئة</h3><p>تدقيق المدخل والحمّام ووسائل الصعود؛ صيغ أرجوحة منخفضة لمحدودية الحركة؛ وحصة أسبوعية هادئة منخفضة المؤثرات الحسية.</p></li>
-      <li><span class="tl-when">٢٠٢٧</span><h3>هوائي مُكيَّف — الأول في مصر</h3><p>برنامج هوائي لمستخدمات الكراسي المتحركة على غرار برامج عالمية مثبتة — سيلك لتخفيف ضغط العمود الفقري، وبروتوكولات مساعدة مدرّبة، وجلسة شهرية للبداية.</p></li>
+      <li><span class="tl-when">٢٠٢٧</span><h3>هوائي مُكيَّف</h3><p>برنامج هوائي لمستخدمات الكراسي المتحركة على غرار برامج عالمية مثبتة — سيلك لتخفيف ضغط العمود الفقري، وبروتوكولات مساعدة مدرّبة، وجلسة شهرية للبداية — ونطمح أن يكون الأول من نوعه في مصر.</p></li>
     </ul>
   </div>
 </section>
@@ -479,7 +505,7 @@ ACCESS_BODY = f'''
   <div class="container">
     <div class="sec-head reveal">
       <span class="sec-kicker">السلامة هي العلامة</span>
-      <h2>قواعد لا نتنازل عنها<span class="sec-mirror" lang="en" dir="ltr">The non-negotiables</span></h2>
+      <h2>قواعد لا نتنازل عنها</h2>
       <p class="sec-lead">اليوغا الهوائية آمنة كما الطيران آمن: بفضل الأنظمة، لا الحظ.</p>
     </div>
     <div class="card-grid reveal">
@@ -507,7 +533,6 @@ CONTACT_BODY = f'''
   <div class="container">
     <span class="sec-kicker">تواصلي معنا</span>
     <h1>تجديننا حيث تلتقي الجبال <span class="line-accent">بالبحر</span></h1>
-    <p class="hero-alt-lang" lang="en" dir="ltr">Find us where the mountains meet the sea</p>
     <p class="ph-lead">كل شيء يمر عبر واتساب — الحجز والأسئلة وتدريب المعلمات وطلبات الأراجيح. رقم واحد، وبشرٌ حقيقيون.</p>
   </div>
 </section>
@@ -609,7 +634,6 @@ ACCOUNT_BODY_AR = '''
   <div class="container">
     <span class="sec-kicker">الأعضاء</span>
     <h1>حسابك في <span class="line-accent">الشالا</span></h1>
-    <p class="hero-alt-lang" lang="en" dir="ltr">Your shala account</p>
     <p class="ph-lead">سجّلي الدخول لرؤية الجدول المباشر وإعلانات الأعضاء ومواعيد الريتريت قبل الجميع.</p>
   </div>
 </section>

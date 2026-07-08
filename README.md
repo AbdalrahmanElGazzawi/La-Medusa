@@ -50,10 +50,18 @@ and run `python3 builder/build.py` — regenerates all 16 pages + sitemap.
 - [ ] **Analytics**: paste GA4 + Meta Pixel IDs into `assets/js/config.js` (scripts load only when set). WhatsApp clicks are pre-wired as `whatsapp_click` events with CTA context.
 - [ ] **Curriculum wording**: AYTTC modules were drafted to match the Pose & Practice Manual's spirit — verify module names against the actual manual, and confirm the Yoga Alliance positioning language with Mona.
 
-## Phase 2 (booking, payments, inquiries) — already architected
+## Phase 2 — LIVE: accounts, live schedule, studio management
 
-- Every CTA is `[data-wa="context"]` → when `bookingEnabled: true` in config.js, buttons that also carry `data-book` will route to `/book/` instead of WhatsApp. No template changes needed.
-- Supabase project is live: `la-medusa` (ref `qpvykmqepyugqtbxzqnq`, eu-central-1). Put its URL + anon key into config.js when the booking/inquiry backend is built.
-- Reserved routes: `/book/`, `/ar/book/`, `/inquire/` — just add folders; nav/CSS/JS already accommodate.
+Backed by Supabase project `la-medusa` (ref `qpvykmqepyugqtbxzqnq`, eu-central-1); keys are in config.js (anon key is public by design — Row Level Security protects everything server-side).
 
-## Br
+- **/account/** (+ /ar/account/) — email+password signup/login for members: live schedule + news feed (members-only items included). First admin: abdghazzawi1@gmail.com (sign up with it to activate).
+- **/admin/** — studio management panel (admins only): edit the weekly **Schedule**, post **Events & news** (public banner on home or members-only), upload **Photos** into any photo slot (replaces placeholder art instantly), and add/remove **Admins** by email.
+- Public pages pull live data with graceful fallback: if JS/network fails, the static schedule and placeholder art render — nothing breaks on weak internet.
+- **Auth config to finish in the Supabase dashboard** (Auth → URL Configuration): set Site URL to the production domain and add it to Redirect URLs, so confirmation/reset emails link correctly.
+- Still reserved for Phase 3: `/book/` + payments — `data-book` CTAs flip to it via `bookingEnabled` in config.js.
+
+## Brand
+
+Colors: seafoam `#59B8AF`, aqua `#4CB1A7`, lavender `#846FB7`, soft violet `#6A57A6`, white.
+Logo only on white / very light backgrounds (as per brand guidelines pack) — the site's canvas is white by design.
+Type: Outfit (sans) + Cormorant Garamond italic (accents); IBM Plex Sans Arabic on AR pages.

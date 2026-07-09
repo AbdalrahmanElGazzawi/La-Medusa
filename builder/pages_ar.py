@@ -31,7 +31,7 @@ def class_cards(items):
 <p>{desc}</p>
 <div class="chip-row"><span class="chip">٩٠ دقيقة</span><span class="chip chip-lav">{level}</span></div>
 <div class="price-tag">{price} ج.م <small>/ الحصة</small></div>
-<a class="card-cta" data-wa="classes" href="#">احجزي هذه الحصة ←</a>
+<a class="card-cta" data-wa="classes" data-book href="#">احجزي هذه الحصة ←</a>
 </article>'''
     return out
 
@@ -48,7 +48,7 @@ HOME_BODY = f'''
     <h1>تحرّكي بجمال.<br>اشعري بالحرية. <span class="line-accent">حلّقي برشاقة.</span></h1>
     <p class="hero-sub">استوديو هوائي هادئ بين جبال سيناء والبحر الأحمر. تبدأ الحصص بتمددٍ لطيف، وتتصاعد إلى الانقلابات، وتُختم بتأرجحٍ داخل الشرنقة.</p>
     <div class="hero-ctas">
-      <a class="btn btn-primary" data-wa="classes" href="#">{ICON_WA} احجزي عبر واتساب</a>
+      <a class="btn btn-primary" data-wa="classes" data-book href="#">{ICON_WA} احجزي عبر واتساب</a>
       <a class="btn btn-ghost" href="/ar/classes/">اكتشفي الحصص</a>
     </div>
   </div>
@@ -202,7 +202,7 @@ CLASSES_BODY = f'''
     <span class="sec-kicker">الحصص والجدول</span>
     <h1>حصص مصمّمة <span class="line-accent">لكل جسد</span></h1>
     <p class="ph-lead">حصص من ٩٠ دقيقة في أجواء هادئة ومجموعات صغيرة. الحجز المسبق مطلوب — راسلينا وسنحجز لك أرجوحتك.</p>
-    <div class="hero-ctas"><a class="btn btn-primary" data-wa="classes" href="#">{ICON_WA} احجزي حصة</a></div>
+    <div class="hero-ctas"><a class="btn btn-primary" data-wa="classes" data-book href="#">{ICON_WA} احجزي حصة</a></div>
   </div>
   <div class="page-hero-band horizon">{art_horizon("ممارِسة يوغا هوائية فوق شاطئ دهب")}</div>
 </section>
@@ -236,7 +236,7 @@ CLASSES_BODY = f'''
         </tbody>
       </table>
     </div>
-    <p class="center mt-3"><a class="btn btn-primary" data-wa="classes" href="#">{ICON_WA} اطلبي جدول هذا الأسبوع</a></p>
+    <p class="center mt-3"><a class="btn btn-primary" data-wa="classes" data-book href="#">{ICON_WA} اطلبي جدول هذا الأسبوع</a></p>
   </div>
 </section>
 
@@ -385,6 +385,7 @@ RETREATS_BODY = f'''
         <h3>المواعيد القادمة</h3>
         <p class="sec-lead">الريتريت القادم مخطط له في نافذة الموسم (أكتوبر–أبريل). تُعلن المواعيد والأسعار الدولية بالدولار واليورو وأماكن الحجز المبكر لقائمة واتساب أولاً.</p>
         <a class="btn btn-primary mt-2" data-wa="retreat" href="#">{ICON_WA} اعرفي المواعيد والأسعار أولاً</a>
+        <p class="mt-1" style="font-size:14px"><a href="/ar/inquire/?topic=retreat">تفضلين الكتابة؟ أرسلي استفسار ريتريت ←</a></p>
       </div>
       <div class="reveal">
         <h3>معلومات مفيدة</h3>
@@ -466,7 +467,7 @@ HAMMOCKS_BODY = f'''
   <div class="container">
     <div class="card-grid">
       <article class="card reveal"><div class="card-art" style="background:var(--seafoam)"></div><h3>لممارستك</h3><p>أرجوحة بألوانك، على مقاس طولك وسقفك — مع إرشاد صادق لتركيبها بأمان في بيتك.</p><a class="card-cta" data-wa="hammocks" href="#">اطلبي أرجوحتك ←</a></article>
-      <article class="card reveal"><div class="card-art" style="background:var(--lavender)"></div><h3>للاستوديوهات والفنادق</h3><p>أطقم جملة للاستوديوهات وأماكن الريتريت والفنادق في مصر والمنطقة — مع إرشادات التركيب في كل طلب.</p><a class="card-cta" data-wa="partner" href="#">استفسار جملة ←</a></article>
+      <article class="card reveal"><div class="card-art" style="background:var(--lavender)"></div><h3>للاستوديوهات والفنادق</h3><p>أطقم جملة للاستوديوهات وأماكن الريتريت والفنادق في مصر والمنطقة — مع إرشادات التركيب في كل طلب.</p><a class="card-cta" data-wa="partner" href="#">استفسار جملة ←</a><br><a class="card-cta" href="/ar/inquire/?topic=hammocks">أو أرسلي استفساراً مكتوباً ←</a></article>
       <article class="card reveal"><div class="card-art" style="background:var(--sand-2)"></div><h3>مصنوعة لتُوثَق بها</h3><p>نفس القماش ومعايير المعدات المصنّفة التي نعلّق بها طالباتنا — لأننا نفعل ذلك كل يوم في الشالا.</p><a class="card-cta" href="/ar/accessibility/">معايير السلامة ←</a></article>
     </div>
     <div class="two-col mt-3">
@@ -544,7 +545,7 @@ CONTACT_BODY = f'''
       <article class="card reveal"><div class="card-art" style="background:var(--lavender)"></div><h3>تدريب المعلمات</h3><p>دفعة يوليو ٢٠٢٦ قيد التسجيل — اطلبي ملف المعلومات وتفاصيل العربون.</p><a class="btn btn-primary" data-wa="ayttc" href="#">{ICON_WA} ملف معلومات AYTTC</a></article>
       <article class="card reveal"><div class="card-art" style="background:var(--sand-2)"></div><h3>الريتريتات</h3><p>انضمي إلى القائمة التي تعرف المواعيد وأسعار الحجز المبكر أولاً.</p><a class="btn btn-primary" data-wa="retreat" href="#">{ICON_WA} قائمة الريتريت</a></article>
       <article class="card reveal"><div class="card-art" style="background:var(--seafoam)"></div><h3>الأراجيح</h3><p>اطلبي أرجوحة مخصصة أو اسألي عن أسعار الجملة لاستوديوهك أو فندقك.</p><a class="btn btn-primary" data-wa="hammocks" href="#">{ICON_WA} كتالوج الأراجيح</a></article>
-      <article class="card reveal"><div class="card-art" style="background:var(--lavender)"></div><h3>الشراكات والفعاليات</h3><p>فعاليات الشركات، المهرجانات، حصص في مقرّكم، وتعاونات العلامات.</p><a class="btn btn-primary" data-wa="partner" href="#">{ICON_WA} كوني شريكاً</a></article>
+      <article class="card reveal"><div class="card-art" style="background:var(--lavender)"></div><h3>الشراكات والفعاليات</h3><p>فعاليات الشركات، المهرجانات، حصص في مقرّكم، وتعاونات العلامات.</p><a class="btn btn-primary" data-wa="partner" href="#">{ICON_WA} كوني شريكاً</a><p class="mt-1" style="font-size:13.5px"><a href="/ar/inquire/?topic=corporate">أو أرسلي استفساراً مكتوباً ←</a></p></article>
       <article class="card reveal"><div class="card-art" style="background:var(--sand-2)"></div><h3>تفضلين إنستغرام؟</h3><p>أرسلي كلمة <strong>«AERIAL»</strong> إلى @theaerialistshala وسنتولى الباقي.</p><a class="btn btn-ghost" href="https://www.instagram.com/theaerialistshala/" target="_blank" rel="noopener">افتحي إنستغرام</a></article>
     </div>
 
@@ -683,7 +684,7 @@ ACCOUNT_BODY_AR = '''
               <tbody data-live-schedule><tr><td colspan="3">جارٍ تحميل الجدول…</td></tr></tbody>
             </table>
           </div>
-          <p class="mt-2"><a class="btn btn-primary btn-sm" data-wa="classes" href="#">احجزي عبر واتساب</a></p>
+          <p class="mt-2"><a class="btn btn-primary btn-sm" data-wa="classes" data-book href="#">احجزي عبر واتساب</a></p>
         </div>
         <div>
           <h3>الأخبار والفعاليات</h3>
@@ -700,4 +701,80 @@ PAGES["account/"] = {
     "desc": "سجّلي الدخول إلى لا ميدوزا لرؤية جدول الحصص المباشر وإعلانات الأعضاء ومواعيد الريتريت أولاً.",
     "body": ACCOUNT_BODY_AR,
     "extra_scripts": '<script src="/assets/js/account.js" defer></script>',
+}
+
+BOOK_BODY_AR = '''
+<section class="page-hero">
+  <div class="container">
+    <span class="sec-kicker">احجزي حصة</span>
+    <h1>احجزي <span class="line-accent">أرجوحتك</span></h1>
+    <p class="ph-lead">اختاري حصة من الأسبوعين القادمين — مقعدك يُحفظ فور الحجز. الحجز مجاني، والدفع في الاستوديو.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p id="book-gate" class="note-soft">جارٍ التحقق من حسابك…</p>
+    <div id="book-view" style="display:none">
+      <div id="book-success"></div>
+      <div class="two-col">
+        <div>
+          <h3>الحصص القادمة</h3>
+          <div id="book-days" class="mt-1"></div>
+        </div>
+        <div>
+          <h3>حجوزاتك القادمة</h3>
+          <div id="my-bookings" class="mt-1"></div>
+          <div class="note-soft mt-2">تغيّرت خططك؟ ألغي الحجز هنا ليأخذ مقعدك شخص آخر. للأسئلة — <a data-wa="classes" href="#">راسلينا على واتساب</a>.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+'''
+
+PAGES["book/"] = {
+    "title": "احجزي حصة — لا ميدوزا · شالا الطيران، دهب",
+    "desc": "احجزي حصتك في اليوغا الهوائية في لا ميدوزا، دهب — جدول مباشر، أماكن متاحة لحظياً، الحجز مجاني والدفع في الاستوديو.",
+    "body": BOOK_BODY_AR,
+    "extra_scripts": '<script src="/assets/js/booking.js" defer></script>',
+}
+
+INQUIRE_BODY_AR = '''
+<section class="page-hero">
+  <div class="container">
+    <span class="sec-kicker">الاستفسارات</span>
+    <h1>أخبرينا بما <span class="line-accent">تخططين له</span></h1>
+    <p class="ph-lead">ريتريتات، فعاليات شركات، طلبات أراجيح بالجملة — اكتبيها هنا وسنرد خلال يومي عمل. تفضلين الدردشة؟ <a data-wa="partner" href="#">واتساب يعمل أيضاً</a>.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="auth-card" style="max-width:640px;margin:0 auto">
+      <form id="form-inquire">
+        <div class="field"><label for="inq-topic">ما موضوع رسالتك؟</label>
+          <select id="inq-topic" required>
+            <option value="retreat">الريتريتات — مواعيد وحجوزات جماعية</option>
+            <option value="corporate">الشركات والشراكات</option>
+            <option value="hammocks">الأراجيح — جملة / طلبات مخصصة</option>
+            <option value="general">شيء آخر</option>
+          </select>
+        </div>
+        <div class="field"><label for="inq-name">اسمك</label><input id="inq-name" type="text" autocomplete="name" required maxlength="120"></div>
+        <div class="field"><label for="inq-contact">البريد الإلكتروني أو رقم واتساب</label><input id="inq-contact" type="text" autocomplete="email" required maxlength="200"></div>
+        <div class="field"><label for="inq-message">رسالتك</label><textarea id="inq-message" rows="6" required maxlength="2000"></textarea></div>
+        <button id="inq-submit" class="btn btn-primary btn-block" type="submit">أرسلي الاستفسار</button>
+        <div id="inq-msg-status" class="auth-msg" role="status"></div>
+      </form>
+    </div>
+  </div>
+</section>
+'''
+
+PAGES["inquire/"] = {
+    "title": "استفسارات الريتريت والشركات والجملة — لا ميدوزا دهب",
+    "desc": "أرسلي إلى لا ميدوزا استفساراً مكتوباً عن الريتريتات وفعاليات الشركات والشراكات أو أراجيح الجملة اليدوية. نرد خلال يومي عمل.",
+    "body": INQUIRE_BODY_AR,
+    "extra_scripts": '<script src="/assets/js/inquire.js" defer></script>',
 }

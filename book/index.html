@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<title>Studio Management — La Medusa</title>
-<meta name="description" content="Admin panel.">
-<link rel="canonical" href="https://lamedusadahab.com/admin/">
-<link rel="alternate" hreflang="en" href="https://lamedusadahab.com/admin/">
-<link rel="alternate" hreflang="ar" href="https://lamedusadahab.com/ar/admin/">
-<link rel="alternate" hreflang="x-default" href="https://lamedusadahab.com/admin/">
+
+<title>Book a Class — La Medusa · The Aerialist Shala, Dahab</title>
+<meta name="description" content="Book your aerial yoga class at La Medusa, Dahab — live schedule, real-time availability, free to book, pay at the studio.">
+<link rel="canonical" href="https://lamedusadahab.com/book/">
+<link rel="alternate" hreflang="en" href="https://lamedusadahab.com/book/">
+<link rel="alternate" hreflang="ar" href="https://lamedusadahab.com/ar/book/">
+<link rel="alternate" hreflang="x-default" href="https://lamedusadahab.com/book/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Studio Management — La Medusa">
-<meta property="og:description" content="Admin panel.">
+<meta property="og:title" content="Book a Class — La Medusa · The Aerialist Shala, Dahab">
+<meta property="og:description" content="Book your aerial yoga class at La Medusa, Dahab — live schedule, real-time availability, free to book, pay at the studio.">
 <meta property="og:image" content="https://lamedusadahab.com/assets/img/og.png">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
@@ -34,7 +34,7 @@
     <nav class="main-nav" aria-label="Main navigation"><ul><li><a href="/">Home</a></li><li><a href="/classes/">Classes</a></li><li><a href="/teacher-training/">Teacher training</a></li><li><a href="/retreats/">Retreats</a></li><li><a href="/teachers/">Teachers</a></li><li><a href="/hammocks/">Hammocks</a></li><li><a href="/accessibility/">Every body flies</a></li><li><a href="/contact/">Contact</a></li></ul></nav>
     <div style="display:flex;align-items:center;gap:10px">
       <a class="account-link" href="/account/" aria-label="My account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-3.5 4.5-5 8-5s6.5 1.5 8 5"/></svg></a>
-      <a class="lang-switch" href="/ar/admin/" lang="ar" dir="rtl">عربي</a>
+      <a class="lang-switch" href="/ar/book/" lang="ar" dir="rtl">عربي</a>
       <button class="nav-toggle" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -43,81 +43,27 @@
 
 <section class="page-hero">
   <div class="container">
-    <span class="sec-kicker">Studio management</span>
-    <h1>Run the <span class="line-accent">shala</span></h1>
-    <p class="ph-lead">Schedule, events, photos and admins — changes go live on the website instantly.</p>
+    <span class="sec-kicker">Book a class</span>
+    <h1>Hold your <span class="line-accent">hammock</span></h1>
+    <p class="ph-lead">Pick a class from the next two weeks — your seat is held the moment you book. Booking is free; you pay at the studio.</p>
   </div>
 </section>
+
 <section class="section">
   <div class="container">
-    <p id="gate" class="note-soft">Checking your access…</p>
-    <div id="panel-wrap" style="display:none">
-      <div class="admin-tabs">
-        <button class="on" data-p="sched">Schedule</button>
-        <button data-p="bookings">Bookings</button>
-        <button data-p="inbox">Inbox</button>
-        <button data-p="events">Events &amp; news</button>
-        <button data-p="photos">Photos</button>
-        <button data-p="admins">Admins</button>
-      </div>
-
-      <div class="admin-panel on" id="panel-sched">
-        <div style="overflow-x:auto">
-        <table class="admin-table" style="min-width:900px">
-          <thead><tr><th>Day</th><th>Time</th><th>Class (EN)</th><th>Class (AR)</th><th>Level</th><th>EGP</th><th>Seats</th><th>Live</th><th></th></tr></thead>
-          <tbody id="sched-body"></tbody>
-        </table>
+    <p id="book-gate" class="note-soft">Checking your account…</p>
+    <div id="book-view" style="display:none">
+      <div id="book-success"></div>
+      <div class="two-col">
+        <div>
+          <h3>Upcoming classes</h3>
+          <div id="book-days" class="mt-1"></div>
         </div>
-        <p class="mt-2"><button id="btn-add-slot" class="btn btn-primary btn-sm" type="button">Add a class slot</button></p>
-        <p class="mt-1" style="font-size:13.5px;color:var(--ink-faint)">Untick “Live” to hide a class without deleting it. Price can stay empty. “Seats” is the booking capacity per class.</p>
-      </div>
-
-      <div class="admin-panel" id="panel-bookings">
-        <div style="overflow-x:auto">
-        <table class="admin-table" style="min-width:820px">
-          <thead><tr><th>Date</th><th>Class</th><th>Member</th><th>Email</th><th>Seats used</th></tr></thead>
-          <tbody id="bookings-body"></tbody>
-        </table>
+        <div>
+          <h3>Your upcoming bookings</h3>
+          <div id="my-bookings" class="mt-1"></div>
+          <div class="note-soft mt-2">Plans changed? Cancel here so someone else can take the seat. Questions — <a data-wa="classes" href="#">message us on WhatsApp</a>.</div>
         </div>
-        <p class="mt-1" style="font-size:13.5px;color:var(--ink-faint)">Upcoming confirmed bookings. Members booked on the website; payment still happens at the studio.</p>
-      </div>
-
-      <div class="admin-panel" id="panel-inbox">
-        <div style="overflow-x:auto">
-        <table class="admin-table" style="min-width:980px">
-          <thead><tr><th>Date</th><th>Topic</th><th>Name</th><th>Contact</th><th>Message</th><th>Status</th></tr></thead>
-          <tbody id="inbox-body"></tbody>
-        </table>
-        </div>
-        <p class="mt-1" style="font-size:13.5px;color:var(--ink-faint)">Written inquiries from the /inquire/ page — retreats, corporate, hammocks. Highlighted rows are new. Reply by email or WhatsApp, then mark as replied.</p>
-      </div>
-
-      <div class="admin-panel" id="panel-events">
-        <div style="overflow-x:auto">
-        <table class="admin-table" style="min-width:980px">
-          <thead><tr><th>Type</th><th>Title EN / AR</th><th>Text EN / AR</th><th>Date</th><th>Published</th><th>Members only</th><th></th></tr></thead>
-          <tbody id="ev-body"></tbody>
-        </table>
-        </div>
-        <p class="mt-2"><button id="btn-add-event" class="btn btn-primary btn-sm" type="button">Add event / announcement</button></p>
-        <p class="mt-1" style="font-size:13.5px;color:var(--ink-faint)">The newest published public item also shows as a banner on the home page. “Members only” items appear just in the members area.</p>
-      </div>
-
-      <div class="admin-panel" id="panel-photos">
-        <div id="photo-list"></div>
-        <p class="mt-1" style="font-size:13.5px;color:var(--ink-faint)">Photos replace the placeholder art on the site the moment they upload. Keep files under 4 MB — export from your phone at medium size so pages stay fast on Dahab internet.</p>
-      </div>
-
-      <div class="admin-panel" id="panel-admins">
-        <table class="admin-table" style="max-width:560px">
-          <thead><tr><th>Admin email</th><th></th></tr></thead>
-          <tbody id="admin-body"></tbody>
-        </table>
-        <div class="mt-2" style="display:flex;gap:10px;max-width:560px">
-          <input id="new-admin-email" type="email" placeholder="name@email.com" style="flex:1;padding:11px 14px;border:1.5px solid var(--sea-tint-2);border-radius:12px;font-family:var(--font-sans)">
-          <button id="btn-add-admin" class="btn btn-sea btn-sm" type="button">Add admin</button>
-        </div>
-        <p class="mt-1" style="font-size:13.5px;color:var(--ink-faint)">If they already have an account they become admin immediately; otherwise it applies when they sign up with this email.</p>
       </div>
     </div>
   </div>
@@ -152,6 +98,6 @@
 <script src="/assets/js/config.js"></script>
 <script src="/assets/js/main.js" defer></script>
 <script src="/assets/js/lm-backend.js" defer></script>
-<script src="/assets/js/admin.js" defer></script>
+<script src="/assets/js/booking.js" defer></script>
 </body>
 </html>

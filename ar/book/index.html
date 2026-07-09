@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<title>حساب الأعضاء — لا ميدوزا · شالا الطيران</title>
-<meta name="description" content="سجّلي الدخول إلى لا ميدوزا لرؤية جدول الحصص المباشر وإعلانات الأعضاء ومواعيد الريتريت أولاً.">
-<link rel="canonical" href="https://lamedusadahab.com/ar/account/">
-<link rel="alternate" hreflang="en" href="https://lamedusadahab.com/account/">
-<link rel="alternate" hreflang="ar" href="https://lamedusadahab.com/ar/account/">
-<link rel="alternate" hreflang="x-default" href="https://lamedusadahab.com/account/">
+
+<title>احجزي حصة — لا ميدوزا · شالا الطيران، دهب</title>
+<meta name="description" content="احجزي حصتك في اليوغا الهوائية في لا ميدوزا، دهب — جدول مباشر، أماكن متاحة لحظياً، الحجز مجاني والدفع في الاستوديو.">
+<link rel="canonical" href="https://lamedusadahab.com/ar/book/">
+<link rel="alternate" hreflang="en" href="https://lamedusadahab.com/book/">
+<link rel="alternate" hreflang="ar" href="https://lamedusadahab.com/ar/book/">
+<link rel="alternate" hreflang="x-default" href="https://lamedusadahab.com/book/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="حساب الأعضاء — لا ميدوزا · شالا الطيران">
-<meta property="og:description" content="سجّلي الدخول إلى لا ميدوزا لرؤية جدول الحصص المباشر وإعلانات الأعضاء ومواعيد الريتريت أولاً.">
+<meta property="og:title" content="احجزي حصة — لا ميدوزا · شالا الطيران، دهب">
+<meta property="og:description" content="احجزي حصتك في اليوغا الهوائية في لا ميدوزا، دهب — جدول مباشر، أماكن متاحة لحظياً، الحجز مجاني والدفع في الاستوديو.">
 <meta property="og:image" content="https://lamedusadahab.com/assets/img/og.png">
 <meta property="og:locale" content="ar_EG">
 <meta name="twitter:card" content="summary_large_image">
@@ -34,7 +34,7 @@
     <nav class="main-nav" aria-label="التنقل الرئيسي"><ul><li><a href="/ar/">الرئيسية</a></li><li><a href="/ar/classes/">الحصص</a></li><li><a href="/ar/teacher-training/">تدريب المعلمين</a></li><li><a href="/ar/retreats/">الريتريتات</a></li><li><a href="/ar/teachers/">المعلمات</a></li><li><a href="/ar/hammocks/">الأراجيح</a></li><li><a href="/ar/accessibility/">كل جسدٍ يطير</a></li><li><a href="/ar/contact/">تواصلي معنا</a></li></ul></nav>
     <div style="display:flex;align-items:center;gap:10px">
       <a class="account-link" href="/ar/account/" aria-label="حسابي"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-3.5 4.5-5 8-5s6.5 1.5 8 5"/></svg></a>
-      <a class="lang-switch" href="/account/" lang="en" dir="ltr">English</a>
+      <a class="lang-switch" href="/book/" lang="en" dir="ltr">English</a>
       <button class="nav-toggle" aria-expanded="false" aria-label="فتح القائمة"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -43,62 +43,26 @@
 
 <section class="page-hero">
   <div class="container">
-    <span class="sec-kicker">الأعضاء</span>
-    <h1>حسابك في <span class="line-accent">الشالا</span></h1>
-    <p class="ph-lead">سجّلي الدخول لرؤية الجدول المباشر وإعلانات الأعضاء ومواعيد الريتريت قبل الجميع.</p>
+    <span class="sec-kicker">احجزي حصة</span>
+    <h1>احجزي <span class="line-accent">أرجوحتك</span></h1>
+    <p class="ph-lead">اختاري حصة من الأسبوعين القادمين — مقعدك يُحفظ فور الحجز. الحجز مجاني، والدفع في الاستوديو.</p>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <div id="auth-view">
-      <div class="two-col" style="max-width:940px;margin:0 auto">
-        <div class="auth-card">
-          <h3>تسجيل الدخول</h3>
-          <form id="form-signin" class="mt-1">
-            <div class="field"><label for="si-email">البريد الإلكتروني</label><input id="si-email" type="email" autocomplete="email" required></div>
-            <div class="field"><label for="si-pw">كلمة المرور</label><input id="si-pw" type="password" autocomplete="current-password" required></div>
-            <button class="btn btn-primary btn-block" type="submit">دخول</button>
-            <div id="signin-msg" class="auth-msg" role="status"></div>
-          </form>
-          <p class="auth-alt"><button id="btn-reset" class="btn btn-ghost btn-sm" type="button">نسيتِ كلمة المرور؟</button></p>
-        </div>
-        <div class="auth-card">
-          <h3>جديدة هنا؟ أنشئي حساباً</h3>
-          <form id="form-signup" class="mt-1">
-            <div class="field"><label for="su-name">اسمك</label><input id="su-name" type="text" autocomplete="name" required></div>
-            <div class="field"><label for="su-email">البريد الإلكتروني</label><input id="su-email" type="email" autocomplete="email" required></div>
-            <div class="field"><label for="su-pw">كلمة المرور (٦ أحرف على الأقل)</label><input id="su-pw" type="password" autocomplete="new-password" required></div>
-            <button class="btn btn-sea btn-block" type="submit">إنشاء الحساب</button>
-            <div id="signup-msg" class="auth-msg" role="status"></div>
-          </form>
-        </div>
-      </div>
-      <p class="center mt-3" style="color:var(--ink-faint);font-size:14px">الحسابات مجانية — والحجز ما زال عبر واتساب حالياً.</p>
-    </div>
-
-    <div id="member-view" style="display:none">
-      <div class="center">
-        <p id="member-hello" class="sec-lead"></p>
-        <p class="mt-1">
-          <a id="admin-link" class="btn btn-primary btn-sm" href="/admin/" style="display:none">لوحة إدارة الاستوديو</a>
-          <button id="btn-signout" class="btn btn-ghost btn-sm" type="button">تسجيل الخروج</button>
-        </p>
-      </div>
-      <div class="two-col mt-3">
+    <p id="book-gate" class="note-soft">جارٍ التحقق من حسابك…</p>
+    <div id="book-view" style="display:none">
+      <div id="book-success"></div>
+      <div class="two-col">
         <div>
-          <h3>هذا الأسبوع في الشالا</h3>
-          <div class="schedule-wrap mt-1">
-            <table class="schedule">
-              <thead><tr><th scope="col">اليوم</th><th scope="col">الحصة</th><th scope="col">الوقت</th></tr></thead>
-              <tbody data-live-schedule><tr><td colspan="3">جارٍ تحميل الجدول…</td></tr></tbody>
-            </table>
-          </div>
-          <p class="mt-2"><a class="btn btn-primary btn-sm" data-wa="classes" data-book href="#">احجزي عبر واتساب</a></p>
+          <h3>الحصص القادمة</h3>
+          <div id="book-days" class="mt-1"></div>
         </div>
         <div>
-          <h3>الأخبار والفعاليات</h3>
-          <ul id="member-events" class="member-list mt-1"></ul>
+          <h3>حجوزاتك القادمة</h3>
+          <div id="my-bookings" class="mt-1"></div>
+          <div class="note-soft mt-2">تغيّرت خططك؟ ألغي الحجز هنا ليأخذ مقعدك شخص آخر. للأسئلة — <a data-wa="classes" href="#">راسلينا على واتساب</a>.</div>
         </div>
       </div>
     </div>
@@ -134,6 +98,6 @@
 <script src="/assets/js/config.js"></script>
 <script src="/assets/js/main.js" defer></script>
 <script src="/assets/js/lm-backend.js" defer></script>
-<script src="/assets/js/account.js" defer></script>
+<script src="/assets/js/booking.js" defer></script>
 </body>
 </html>

@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<title>Studio Management — La Medusa</title>
-<meta name="description" content="Admin panel.">
-<link rel="canonical" href="https://lamedusadahab.com/admin/">
-<link rel="alternate" hreflang="en" href="https://lamedusadahab.com/admin/">
-<link rel="alternate" hreflang="ar" href="https://lamedusadahab.com/ar/admin/">
-<link rel="alternate" hreflang="x-default" href="https://lamedusadahab.com/admin/">
+
+<title>Retreat, Corporate & Wholesale Inquiries — La Medusa Dahab</title>
+<meta name="description" content="Send La Medusa a written inquiry about retreats, corporate events and partnerships, or wholesale handmade aerial hammocks. We reply within two working days.">
+<link rel="canonical" href="https://lamedusadahab.com/inquire/">
+<link rel="alternate" hreflang="en" href="https://lamedusadahab.com/inquire/">
+<link rel="alternate" hreflang="ar" href="https://lamedusadahab.com/ar/inquire/">
+<link rel="alternate" hreflang="x-default" href="https://lamedusadahab.com/inquire/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Studio Management — La Medusa">
-<meta property="og:description" content="Admin panel.">
+<meta property="og:title" content="Retreat, Corporate & Wholesale Inquiries — La Medusa Dahab">
+<meta property="og:description" content="Send La Medusa a written inquiry about retreats, corporate events and partnerships, or wholesale handmade aerial hammocks. We reply within two working days.">
 <meta property="og:image" content="https://lamedusadahab.com/assets/img/og.png">
 <meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
@@ -34,7 +34,7 @@
     <nav class="main-nav" aria-label="Main navigation"><ul><li><a href="/">Home</a></li><li><a href="/classes/">Classes</a></li><li><a href="/teacher-training/">Teacher training</a></li><li><a href="/retreats/">Retreats</a></li><li><a href="/teachers/">Teachers</a></li><li><a href="/hammocks/">Hammocks</a></li><li><a href="/accessibility/">Every body flies</a></li><li><a href="/contact/">Contact</a></li></ul></nav>
     <div style="display:flex;align-items:center;gap:10px">
       <a class="account-link" href="/account/" aria-label="My account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-3.5 4.5-5 8-5s6.5 1.5 8 5"/></svg></a>
-      <a class="lang-switch" href="/ar/admin/" lang="ar" dir="rtl">عربي</a>
+      <a class="lang-switch" href="/ar/inquire/" lang="ar" dir="rtl">عربي</a>
       <button class="nav-toggle" aria-expanded="false" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -43,82 +43,30 @@
 
 <section class="page-hero">
   <div class="container">
-    <span class="sec-kicker">Studio management</span>
-    <h1>Run the <span class="line-accent">shala</span></h1>
-    <p class="ph-lead">Schedule, events, photos and admins — changes go live on the website instantly.</p>
+    <span class="sec-kicker">Inquiries</span>
+    <h1>Tell us what you're <span class="line-accent">planning</span></h1>
+    <p class="ph-lead">Retreats, corporate events, wholesale hammock orders — write it here and we'll reply within two working days. Prefer chat? <a data-wa="partner" href="#">WhatsApp works too</a>.</p>
   </div>
 </section>
+
 <section class="section">
   <div class="container">
-    <p id="gate" class="note-soft">Checking your access…</p>
-    <div id="panel-wrap" style="display:none">
-      <div class="admin-tabs">
-        <button class="on" data-p="sched">Schedule</button>
-        <button data-p="bookings">Bookings</button>
-        <button data-p="inbox">Inbox</button>
-        <button data-p="events">Events &amp; news</button>
-        <button data-p="photos">Photos</button>
-        <button data-p="admins">Admins</button>
-      </div>
-
-      <div class="admin-panel on" id="panel-sched">
-        <div style="overflow-x:auto">
-        <table class="admin-table" style="min-width:900px">
-          <thead><tr><th>Day</th><th>Time</th><th>Class (EN)</th><th>Class (AR)</th><th>Level</th><th>EGP</th><th>Seats</th><th>Live</th><th></th></tr></thead>
-          <tbody id="sched-body"></tbody>
-        </table>
+    <div class="auth-card" style="max-width:640px;margin:0 auto">
+      <form id="form-inquire">
+        <div class="field"><label for="inq-topic">What is this about?</label>
+          <select id="inq-topic" required>
+            <option value="retreat">Retreats — dates, group bookings</option>
+            <option value="corporate">Corporate &amp; partnerships</option>
+            <option value="hammocks">Hammocks — wholesale / custom orders</option>
+            <option value="general">Something else</option>
+          </select>
         </div>
-        <p class="mt-2"><button id="btn-add-slot" class="btn btn-primary btn-sm" type="button">Add a class slot</button></p>
-        <p class="mt-1" style="font-size:13.5px;color:var(--ink-faint)">Untick “Live” to hide a class without deleting it. Price can stay empty. “Seats” is the booking capacity per class.</p>
-      </div>
-
-      <div class="admin-panel" id="panel-bookings">
-        <div style="overflow-x:auto">
-        <table class="admin-table" style="min-width:820px">
-          <thead><tr><th>Date</th><th>Class</th><th>Member</th><th>Email</th><th>Seats used</th></tr></thead>
-          <tbody id="bookings-body"></tbody>
-        </table>
-        </div>
-        <p class="mt-1" style="font-size:13.5px;color:var(--ink-faint)">Upcoming confirmed bookings. Members booked on the website; payment still happens at the studio.</p>
-      </div>
-
-      <div class="admin-panel" id="panel-inbox">
-        <div style="overflow-x:auto">
-        <table class="admin-table" style="min-width:980px">
-          <thead><tr><th>Date</th><th>Topic</th><th>Name</th><th>Contact</th><th>Message</th><th>Status</th></tr></thead>
-          <tbody id="inbox-body"></tbody>
-        </table>
-        </div>
-        <p class="mt-1" style="font-size:13.5px;color:var(--ink-faint)">Written inquiries from the /inquire/ page — retreats, corporate, hammocks. Highlighted rows are new. Reply by email or WhatsApp, then mark as replied.</p>
-      </div>
-
-      <div class="admin-panel" id="panel-events">
-        <div style="overflow-x:auto">
-        <table class="admin-table" style="min-width:980px">
-          <thead><tr><th>Type</th><th>Title EN / AR</th><th>Text EN / AR</th><th>Date</th><th>Published</th><th>Members only</th><th></th></tr></thead>
-          <tbody id="ev-body"></tbody>
-        </table>
-        </div>
-        <p class="mt-2"><button id="btn-add-event" class="btn btn-primary btn-sm" type="button">Add event / announcement</button></p>
-        <p class="mt-1" style="font-size:13.5px;color:var(--ink-faint)">The newest published public item also shows as a banner on the home page. “Members only” items appear just in the members area.</p>
-      </div>
-
-      <div class="admin-panel" id="panel-photos">
-        <div id="photo-list"></div>
-        <p class="mt-1" style="font-size:13.5px;color:var(--ink-faint)">Photos replace the placeholder art on the site the moment they upload. Keep files under 4 MB — export from your phone at medium size so pages stay fast on Dahab internet.</p>
-      </div>
-
-      <div class="admin-panel" id="panel-admins">
-        <table class="admin-table" style="max-width:560px">
-          <thead><tr><th>Admin email</th><th></th></tr></thead>
-          <tbody id="admin-body"></tbody>
-        </table>
-        <div class="mt-2" style="display:flex;gap:10px;max-width:560px">
-          <input id="new-admin-email" type="email" placeholder="name@email.com" style="flex:1;padding:11px 14px;border:1.5px solid var(--sea-tint-2);border-radius:12px;font-family:var(--font-sans)">
-          <button id="btn-add-admin" class="btn btn-sea btn-sm" type="button">Add admin</button>
-        </div>
-        <p class="mt-1" style="font-size:13.5px;color:var(--ink-faint)">If they already have an account they become admin immediately; otherwise it applies when they sign up with this email.</p>
-      </div>
+        <div class="field"><label for="inq-name">Your name</label><input id="inq-name" type="text" autocomplete="name" required maxlength="120"></div>
+        <div class="field"><label for="inq-contact">Email or WhatsApp number</label><input id="inq-contact" type="text" autocomplete="email" required maxlength="200"></div>
+        <div class="field"><label for="inq-message">Your message</label><textarea id="inq-message" rows="6" required maxlength="2000"></textarea></div>
+        <button id="inq-submit" class="btn btn-primary btn-block" type="submit">Send inquiry</button>
+        <div id="inq-msg-status" class="auth-msg" role="status"></div>
+      </form>
     </div>
   </div>
 </section>
@@ -152,6 +100,6 @@
 <script src="/assets/js/config.js"></script>
 <script src="/assets/js/main.js" defer></script>
 <script src="/assets/js/lm-backend.js" defer></script>
-<script src="/assets/js/admin.js" defer></script>
+<script src="/assets/js/inquire.js" defer></script>
 </body>
 </html>

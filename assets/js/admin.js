@@ -58,6 +58,7 @@
             '<td><input data-f="class_ar" dir="rtl" value="' + attr(x.class_ar) + '"></td>' +
             '<td><input data-f="level_en" value="' + attr(x.level_en) + '"></td>' +
             '<td><input data-f="price_egp" type="number" value="' + (x.price_egp || "") + '" placeholder="—"></td>' +
+            '<td><input data-f="capacity" type="number" min="1" max="40" value="' + (x.capacity || 8) + '" style="width:56px"></td>' +
             '<td><input data-f="active" type="checkbox"' + (x.active ? " checked" : "") + "></td>" +
             '<td style="white-space:nowrap"><button class="btn btn-sea btn-sm" data-act="save">Save</button> ' +
             '<button class="btn btn-danger btn-sm" data-act="del">Delete</button></td></tr>';
@@ -78,6 +79,7 @@
         if (f === "active") upd[f] = inp.checked;
         else if (f === "day_of_week") upd[f] = parseInt(inp.value, 10);
         else if (f === "price_egp") upd[f] = inp.value ? parseInt(inp.value, 10) : null;
+        else if (f === "capacity") upd[f] = Math.min(40, Math.max(1, parseInt(inp.value, 10) || 8));
         else upd[f] = inp.value;
       });
       db.from("schedule_slots").update(upd).eq("id", id).then(function (r) { r.error ? alert(r.error.message) : loadSchedule(); });
@@ -158,29 +160,23 @@
       });
     });
 
-    /* ----- admins ----- */
-    function loadAdmins() {
-      db.from("site_admins").select("*").order("added_at").then(function (r) {
-        if (r.error) return alert(r.error.message);
-        $("admin-body").innerHTML = r.data.map(function (x) {
-          return '<tr><td>' + esc(x.email) + '</td><td style="white-space:nowrap"><button class="btn btn-danger btn-sm" data-email="' + attr(x.email) + '">Remove</button></td></tr>';
-        }).join("");
-      });
-    }
-    $("admin-body").addEventListener("click", function (e) {
-      var btn = e.target.closest("button[data-email]"); if (!btn) return;
-      if (!confirm("Remove " + btn.dataset.email + " from the admin list? (Their existing account keeps its current role — this affects future signups.)")) return;
-      db.from("site_admins").delete().eq("email", btn.dataset.email).then(function (r) { r.error ? alert(r.error.message) : loadAdmins(); });
-    });
-    $("btn-add-admin").addEventListener("click", function () {
-      var email = $("new-admin-email").value.trim();
-      if (!email || email.indexOf("@") < 1) return alert("Enter a valid email.");
-      db.rpc("promote_to_admin", { p_email: email }).then(function (r) {
-        if (r.error) return alert(r.error.message);
-        $("new-admin-email").value = ""; loadAdmins();
-      });
-    });
-
-    loadSchedule(); loadEvents(); loadPhotos(); loadAdmins();
-  }
-})();
+    /* ----- bookings ----- */
+    function loadBookings() {
+      var today = new Date().toISOString().slice(0, 10);
+      db.from("bookings")
+        .select("*, schedule_slots(class_en, time_label, capacity), profiles(full_name, email)")
+        .eq("status", "confirmed").gte("class_date", today)
+        .order("class_date").order("created_at")
+        .then(function (r) {
+          if (r.error) return alert(r.error.message);
+          if (!r.data.length) { $("bookings-body").innerHTML = '<tr><td colspan="5">No upcoming bookings yet.</td></tr>'; return; }
+          var counts = {};
+          r.data.forEach(function (b) { var k = b.slot_id + "|" + b.class_date; counts[k] = (counts[k] || 0) + 1; });
+          $("bookings-body").innerHTML = r.data.map(function (b) {
+            var s = b.schedule_slots || {}, p = b.profiles || {};
+            var k = b.slot_id + "|" + b.class_date;
+            return '<tr data-id="' + b.id + '">' +
+              "<td>" + esc(b.class_date) + "</td>" +
+              "<td>" + esc(s.class_en) + " · " + esc(s.time_label) + "</td>" +
+              "<td>" + esc(p.full_name || "—") + "</td>" +
+              

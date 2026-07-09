@@ -30,7 +30,7 @@ def class_cards(items):
 <p>{desc}</p>
 <div class="chip-row"><span class="chip">90 min</span><span class="chip chip-lav">{level}</span></div>
 <div class="price-tag">{price} EGP <small>/ session</small></div>
-<a class="card-cta" data-wa="classes" href="#">Book this class →</a>
+<a class="card-cta" data-wa="classes" data-book href="#">Book this class →</a>
 </article>'''
     return out
 
@@ -47,7 +47,7 @@ HOME_BODY = f'''
     <h1>Move beautifully.<br>Feel freely. <span class="line-accent">Fly gracefully.</span></h1>
     <p class="hero-sub">A calm, somatic aerial studio between the Sinai mountains and the Red Sea. Classes begin with gentle stretching, build to inversions, and end swaying in a cocoon.</p>
     <div class="hero-ctas">
-      <a class="btn btn-primary" data-wa="classes" href="#">{ICON_WA} Book on WhatsApp</a>
+      <a class="btn btn-primary" data-wa="classes" data-book href="#">{ICON_WA} Book on WhatsApp</a>
       <a class="btn btn-ghost" href="/classes/">Explore classes</a>
     </div>
   </div>
@@ -201,7 +201,7 @@ CLASSES_BODY = f'''
     <span class="sec-kicker">Classes &amp; schedule</span>
     <h1>Tailored classes for <span class="line-accent">every body</span></h1>
     <p class="ph-lead">90-minute sessions in a calm, small-group setting. Pre-booking is required — message us and we'll hold your hammock.</p>
-    <div class="hero-ctas"><a class="btn btn-primary" data-wa="classes" href="#">{ICON_WA} Book a class</a></div>
+    <div class="hero-ctas"><a class="btn btn-primary" data-wa="classes" data-book href="#">{ICON_WA} Book a class</a></div>
   </div>
   <div class="page-hero-band horizon">{art_horizon("Aerialist above the Dahab shoreline")}</div>
 </section>
@@ -235,7 +235,7 @@ CLASSES_BODY = f'''
         </tbody>
       </table>
     </div>
-    <p class="center mt-3"><a class="btn btn-primary" data-wa="classes" href="#">{ICON_WA} Get this week's schedule</a></p>
+    <p class="center mt-3"><a class="btn btn-primary" data-wa="classes" data-book href="#">{ICON_WA} Get this week's schedule</a></p>
   </div>
 </section>
 
@@ -398,6 +398,7 @@ RETREATS_BODY = f'''
         <h3>Next dates</h3>
         <p class="sec-lead">The next retreat is planned for the high-season window (October–April). Dates, international pricing in USD/EUR, and early-bird places are announced to the WhatsApp list first.</p>
         <a class="btn btn-primary mt-2" data-wa="retreat" href="#">{ICON_WA} Get dates &amp; pricing first</a>
+        <p class="mt-1" style="font-size:14px"><a href="/inquire/?topic=retreat">Prefer email? Send a retreat inquiry →</a></p>
       </div>
       <div class="reveal">
         <h3>Good to know</h3>
@@ -479,7 +480,7 @@ HAMMOCKS_BODY = f'''
   <div class="container">
     <div class="card-grid">
       <article class="card reveal"><div class="card-art" style="background:var(--seafoam)"></div><h3>For your practice</h3><p>A hammock in your colors, sized to your height and ceiling — with honest guidance on rigging it safely at home.</p><a class="card-cta" data-wa="hammocks" href="#">Order yours →</a></article>
-      <article class="card reveal"><div class="card-art" style="background:var(--lavender)"></div><h3>For studios &amp; hotels</h3><p>Wholesale sets for studios, retreat venues and hotels across Egypt and MENA — rigging guidance included with every order.</p><a class="card-cta" data-wa="partner" href="#">Wholesale enquiry →</a></article>
+      <article class="card reveal"><div class="card-art" style="background:var(--lavender)"></div><h3>For studios &amp; hotels</h3><p>Wholesale sets for studios, retreat venues and hotels across Egypt and MENA — rigging guidance included with every order.</p><a class="card-cta" data-wa="partner" href="#">Wholesale enquiry →</a><br><a class="card-cta" href="/inquire/?topic=hammocks">Or send a written inquiry →</a></article>
       <article class="card reveal"><div class="card-art" style="background:var(--sand-2)"></div><h3>Made to be trusted</h3><p>The same fabric and rated hardware standards we hang our own students from — because we do, every day, in the shala.</p><a class="card-cta" href="/accessibility/">Our safety standards →</a></article>
     </div>
     <div class="two-col mt-3">
@@ -557,7 +558,7 @@ CONTACT_BODY = f'''
       <article class="card reveal"><div class="card-art" style="background:var(--lavender)"></div><h3>Teacher training</h3><p>July 2026 cohort enrolling — get the info pack and deposit details.</p><a class="btn btn-primary" data-wa="ayttc" href="#">{ICON_WA} AYTTC info pack</a></article>
       <article class="card reveal"><div class="card-art" style="background:var(--sand-2)"></div><h3>Retreats</h3><p>Join the list that hears dates and early-bird pricing first.</p><a class="btn btn-primary" data-wa="retreat" href="#">{ICON_WA} Retreat list</a></article>
       <article class="card reveal"><div class="card-art" style="background:var(--seafoam)"></div><h3>Hammocks</h3><p>Order a custom hammock or ask about wholesale for your studio or hotel.</p><a class="btn btn-primary" data-wa="hammocks" href="#">{ICON_WA} Hammock catalog</a></article>
-      <article class="card reveal"><div class="card-art" style="background:var(--lavender)"></div><h3>Partnerships &amp; events</h3><p>Corporate offsites, festivals, venue classes, brand collaborations.</p><a class="btn btn-primary" data-wa="partner" href="#">{ICON_WA} Partner with us</a></article>
+      <article class="card reveal"><div class="card-art" style="background:var(--lavender)"></div><h3>Partnerships &amp; events</h3><p>Corporate offsites, festivals, venue classes, brand collaborations.</p><a class="btn btn-primary" data-wa="partner" href="#">{ICON_WA} Partner with us</a><p class="mt-1" style="font-size:13.5px"><a href="/inquire/?topic=corporate">Or send a written inquiry →</a></p></article>
       <article class="card reveal"><div class="card-art" style="background:var(--sand-2)"></div><h3>Prefer Instagram?</h3><p>DM the word <strong>“AERIAL”</strong> to @theaerialistshala and we'll take it from there.</p><a class="btn btn-ghost" href="https://www.instagram.com/theaerialistshala/" target="_blank" rel="noopener">Open Instagram</a></article>
     </div>
 
@@ -703,7 +704,7 @@ ACCOUNT_BODY = '''
               <tbody data-live-schedule><tr><td colspan="3">Loading schedule…</td></tr></tbody>
             </table>
           </div>
-          <p class="mt-2"><a class="btn btn-primary btn-sm" data-wa="classes" href="#">Book on WhatsApp</a></p>
+          <p class="mt-2"><a class="btn btn-primary btn-sm" data-wa="classes" data-book href="#">Book on WhatsApp</a></p>
         </div>
         <div>
           <h3>News &amp; events</h3>
@@ -722,6 +723,82 @@ PAGES["account/"] = {
     "extra_scripts": '<script src="/assets/js/account.js" defer></script>',
 }
 
+BOOK_BODY = '''
+<section class="page-hero">
+  <div class="container">
+    <span class="sec-kicker">Book a class</span>
+    <h1>Hold your <span class="line-accent">hammock</span></h1>
+    <p class="ph-lead">Pick a class from the next two weeks — your seat is held the moment you book. Booking is free; you pay at the studio.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <p id="book-gate" class="note-soft">Checking your account…</p>
+    <div id="book-view" style="display:none">
+      <div id="book-success"></div>
+      <div class="two-col">
+        <div>
+          <h3>Upcoming classes</h3>
+          <div id="book-days" class="mt-1"></div>
+        </div>
+        <div>
+          <h3>Your upcoming bookings</h3>
+          <div id="my-bookings" class="mt-1"></div>
+          <div class="note-soft mt-2">Plans changed? Cancel here so someone else can take the seat. Questions — <a data-wa="classes" href="#">message us on WhatsApp</a>.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+'''
+
+PAGES["book/"] = {
+    "title": "Book a Class — La Medusa · The Aerialist Shala, Dahab",
+    "desc": "Book your aerial yoga class at La Medusa, Dahab — live schedule, real-time availability, free to book, pay at the studio.",
+    "body": BOOK_BODY,
+    "extra_scripts": '<script src="/assets/js/booking.js" defer></script>',
+}
+
+INQUIRE_BODY = '''
+<section class="page-hero">
+  <div class="container">
+    <span class="sec-kicker">Inquiries</span>
+    <h1>Tell us what you're <span class="line-accent">planning</span></h1>
+    <p class="ph-lead">Retreats, corporate events, wholesale hammock orders — write it here and we'll reply within two working days. Prefer chat? <a data-wa="partner" href="#">WhatsApp works too</a>.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="auth-card" style="max-width:640px;margin:0 auto">
+      <form id="form-inquire">
+        <div class="field"><label for="inq-topic">What is this about?</label>
+          <select id="inq-topic" required>
+            <option value="retreat">Retreats — dates, group bookings</option>
+            <option value="corporate">Corporate &amp; partnerships</option>
+            <option value="hammocks">Hammocks — wholesale / custom orders</option>
+            <option value="general">Something else</option>
+          </select>
+        </div>
+        <div class="field"><label for="inq-name">Your name</label><input id="inq-name" type="text" autocomplete="name" required maxlength="120"></div>
+        <div class="field"><label for="inq-contact">Email or WhatsApp number</label><input id="inq-contact" type="text" autocomplete="email" required maxlength="200"></div>
+        <div class="field"><label for="inq-message">Your message</label><textarea id="inq-message" rows="6" required maxlength="2000"></textarea></div>
+        <button id="inq-submit" class="btn btn-primary btn-block" type="submit">Send inquiry</button>
+        <div id="inq-msg-status" class="auth-msg" role="status"></div>
+      </form>
+    </div>
+  </div>
+</section>
+'''
+
+PAGES["inquire/"] = {
+    "title": "Retreat, Corporate & Wholesale Inquiries — La Medusa Dahab",
+    "desc": "Send La Medusa a written inquiry about retreats, corporate events and partnerships, or wholesale handmade aerial hammocks. We reply within two working days.",
+    "body": INQUIRE_BODY,
+    "extra_scripts": '<script src="/assets/js/inquire.js" defer></script>',
+}
+
 ADMIN_BODY = '''
 <section class="page-hero">
   <div class="container">
@@ -736,6 +813,8 @@ ADMIN_BODY = '''
     <div id="panel-wrap" style="display:none">
       <div class="admin-tabs">
         <button class="on" data-p="sched">Schedule</button>
+        <button data-p="bookings">Bookings</button>
+        <button data-p="inbox">Inbox</button>
         <button data-p="events">Events &amp; news</button>
         <button data-p="photos">Photos</button>
         <button data-p="admins">Admins</button>
@@ -744,12 +823,32 @@ ADMIN_BODY = '''
       <div class="admin-panel on" id="panel-sched">
         <div style="overflow-x:auto">
         <table class="admin-table" style="min-width:900px">
-          <thead><tr><th>Day</th><th>Time</th><th>Class (EN)</th><th>Class (AR)</th><th>Level</th><th>EGP</th><th>Live</th><th></th></tr></thead>
+          <thead><tr><th>Day</th><th>Time</th><th>Class (EN)</th><th>Class (AR)</th><th>Level</th><th>EGP</th><th>Seats</th><th>Live</th><th></th></tr></thead>
           <tbody id="sched-body"></tbody>
         </table>
         </div>
         <p class="mt-2"><button id="btn-add-slot" class="btn btn-primary btn-sm" type="button">Add a class slot</button></p>
-        <p class="mt-1" style="font-size:13.5px;color:var(--ink-faint)">Untick “Live” to hide a class without deleting it. Price can stay empty.</p>
+        <p class="mt-1" style="font-size:13.5px;color:var(--ink-faint)">Untick “Live” to hide a class without deleting it. Price can stay empty. “Seats” is the booking capacity per class.</p>
+      </div>
+
+      <div class="admin-panel" id="panel-bookings">
+        <div style="overflow-x:auto">
+        <table class="admin-table" style="min-width:820px">
+          <thead><tr><th>Date</th><th>Class</th><th>Member</th><th>Email</th><th>Seats used</th></tr></thead>
+          <tbody id="bookings-body"></tbody>
+        </table>
+        </div>
+        <p class="mt-1" style="font-size:13.5px;color:var(--ink-faint)">Upcoming confirmed bookings. Members booked on the website; payment still happens at the studio.</p>
+      </div>
+
+      <div class="admin-panel" id="panel-inbox">
+        <div style="overflow-x:auto">
+        <table class="admin-table" style="min-width:980px">
+          <thead><tr><th>Date</th><th>Topic</th><th>Name</th><th>Contact</th><th>Message</th><th>Status</th></tr></thead>
+          <tbody id="inbox-body"></tbody>
+        </table>
+        </div>
+        <p class="mt-1" style="font-size:13.5px;color:var(--ink-faint)">Written inquiries from the /inquire/ page — retreats, corporate, hammocks. Highlighted rows are new. Reply by email or WhatsApp, then mark as replied.</p>
       </div>
 
       <div class="admin-panel" id="panel-events">

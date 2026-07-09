@@ -15,7 +15,7 @@ window.LM_CONFIG = {
   metaPixelId: "",      /* e.g. "1234567890" */
 
   /* Phase 2 slots (booking, payments, inquiry forms) */
-  bookingEnabled: false,
+  bookingEnabled: true,
   supabaseUrl: "https://qpvykmqepyugqtbxzqnq.supabase.co",
   supabaseAnonKey: "sb_publishable_ReyYpPnyfXazqdTa7wClLQ_dOF4JrEo",
 

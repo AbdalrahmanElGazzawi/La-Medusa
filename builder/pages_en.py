@@ -600,6 +600,10 @@ HOME_JSONLD = f'''<script type="application/ld+json">{{
     "https://www.instagram.com/profoundlytrue/",
     "https://www.instagram.com/hammocksbymonashafei/"
   ],
+  "openingHoursSpecification": [
+    {{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Thursday", "Sunday"], "opens": "19:00", "closes": "20:30" }},
+    {{ "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "09:00", "closes": "10:30" }}
+  ],
   "priceRange": "EGP 500–650",
   "slogan": "Move beautifully. Feel freely. Fly gracefully."
 }}</script>'''

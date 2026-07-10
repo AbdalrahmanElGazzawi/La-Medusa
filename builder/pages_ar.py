@@ -582,6 +582,10 @@ HOME_JSONLD = f'''<script type="application/ld+json">{{
   "address": {{ "@type": "PostalAddress", "addressLocality": "Dahab", "addressRegion": "South Sinai", "addressCountry": "EG", "streetAddress": "Assala" }},
   "geo": {{ "@type": "GeoCoordinates", "latitude": 28.509, "longitude": 34.513 }},
   "sameAs": ["https://www.instagram.com/theaerialistshala/"],
+  "openingHoursSpecification": [
+    {{ "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Thursday", "Sunday"], "opens": "19:00", "closes": "20:30" }},
+    {{ "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "09:00", "closes": "10:30" }}
+  ],
   "priceRange": "EGP 500–650"
 }}</script>'''
 

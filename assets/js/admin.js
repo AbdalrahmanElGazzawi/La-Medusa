@@ -179,4 +179,78 @@
               "<td>" + esc(b.class_date) + "</td>" +
               "<td>" + esc(s.class_en) + " · " + esc(s.time_label) + "</td>" +
               "<td>" + esc(p.full_name || "—") + "</td>" +
-              
+              "<td>" + esc(p.email || "—") + "</td>" +
+              "<td>" + counts[k] + " / " + (s.capacity || 8) +
+              ' <button class="btn btn-danger btn-sm" data-act="cancel-booking">Cancel</button></td></tr>';
+          }).join("");
+        });
+    }
+    $("bookings-body").addEventListener("click", function (e) {
+      var btn = e.target.closest('button[data-act="cancel-booking"]'); if (!btn) return;
+      if (!confirm("Cancel this member's booking? (Let them know on WhatsApp too.)")) return;
+      var id = btn.closest("tr").dataset.id;
+      db.from("bookings").update({ status: "cancelled" }).eq("id", id)
+        .then(function (r) { r.error ? alert(r.error.message) : loadBookings(); });
+    });
+
+    /* ----- inquiry inbox ----- */
+    function loadInbox() {
+      db.from("inquiries").select("*").order("created_at", { ascending: false }).limit(200).then(function (r) {
+        if (r.error) return alert(r.error.message);
+        if (!r.data.length) { $("inbox-body").innerHTML = '<tr><td colspan="6">No inquiries yet.</td></tr>'; return; }
+        $("inbox-body").innerHTML = r.data.map(function (x) {
+          var opts = ["new", "replied", "closed"].map(function (s) {
+            return "<option" + (x.status === s ? " selected" : "") + ">" + s + "</option>";
+          }).join("");
+          return '<tr data-id="' + x.id + '"' + (x.status === "new" ? ' style="background:#FBF8EF"' : "") + ">" +
+            "<td>" + esc(x.created_at.slice(0, 10)) + "</td>" +
+            "<td>" + esc(x.topic) + (x.lang === "ar" ? " · AR" : "") + "</td>" +
+            "<td>" + esc(x.name) + "</td>" +
+            "<td>" + esc(x.contact) + "</td>" +
+            '<td style="max-width:340px;white-space:pre-wrap">' + esc(x.message) + "</td>" +
+            '<td style="white-space:nowrap"><select data-f="status">' + opts + "</select> " +
+            '<button class="btn btn-sea btn-sm" data-act="save-inq">Save</button> ' +
+            '<button class="btn btn-danger btn-sm" data-act="del-inq">Delete</button></td></tr>';
+        }).join("");
+      });
+    }
+    $("inbox-body").addEventListener("click", function (e) {
+      var btn = e.target.closest("button[data-act]"); if (!btn) return;
+      var tr = btn.closest("tr"), id = tr.dataset.id;
+      if (btn.dataset.act === "del-inq") {
+        if (!confirm("Delete this inquiry permanently?")) return;
+        db.from("inquiries").delete().eq("id", id).then(function (r) { r.error ? alert(r.error.message) : loadInbox(); });
+        return;
+      }
+      if (btn.dataset.act === "save-inq") {
+        db.from("inquiries").update({ status: tr.querySelector('[data-f="status"]').value }).eq("id", id)
+          .then(function (r) { r.error ? alert(r.error.message) : loadInbox(); });
+      }
+    });
+
+    /* ----- admins ----- */
+    function loadAdmins() {
+      db.from("site_admins").select("*").order("added_at").then(function (r) {
+        if (r.error) return alert(r.error.message);
+        $("admin-body").innerHTML = r.data.map(function (x) {
+          return '<tr><td>' + esc(x.email) + '</td><td style="white-space:nowrap"><button class="btn btn-danger btn-sm" data-email="' + attr(x.email) + '">Remove</button></td></tr>';
+        }).join("");
+      });
+    }
+    $("admin-body").addEventListener("click", function (e) {
+      var btn = e.target.closest("button[data-email]"); if (!btn) return;
+      if (!confirm("Remove " + btn.dataset.email + " from the admin list? (Their existing account keeps its current role — this affects future signups.)")) return;
+      db.from("site_admins").delete().eq("email", btn.dataset.email).then(function (r) { r.error ? alert(r.error.message) : loadAdmins(); });
+    });
+    $("btn-add-admin").addEventListener("click", function () {
+      var email = $("new-admin-email").value.trim();
+      if (!email || email.indexOf("@") < 1) return alert("Enter a valid email.");
+      db.rpc("promote_to_admin", { p_email: email }).then(function (r) {
+        if (r.error) return alert(r.error.message);
+        $("new-admin-email").value = ""; loadAdmins();
+      });
+    });
+
+    loadSchedule(); loadEvents(); loadPhotos(); loadAdmins(); loadBookings(); loadInbox();
+  }
+})();

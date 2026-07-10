@@ -2,6 +2,47 @@
 # Domain is a placeholder until decided; find-replace or edit here + rebuild.
 DOMAIN = "https://lamedusadahab.com"
 
+# --- WhatsApp CTA fallback (server-rendered hrefs; main.js enhances at runtime) ---
+# Keep in sync with assets/js/config.js (whatsappNumber, waMessages).
+import re as _re
+from urllib.parse import quote as _quote
+
+WA_NUMBER = "201156166225"
+WA_MESSAGES = {
+    "en": {
+        "general": "AERIAL \u2014 Hi La Medusa! I found you through the website.",
+        "classes": "AERIAL \u2014 Hi! I'd like to book a class. Which sessions have space this week?",
+        "kids": "AERIAL \u2014 Hi! I'd like to ask about kids' aerial classes.",
+        "ayttc": "AYTTC \u2014 Hi! I'm interested in the July 2026 teacher training. Could you send me the details and how to reserve a spot?",
+        "retreat": "RETREAT \u2014 Hi! I'd like to hear about the next La Medusa retreat dates and pricing.",
+        "hammocks": "HAMMOCKS \u2014 Hi! I'd like to order a handmade hammock / see the catalog.",
+        "partner": "PARTNER \u2014 Hi! I'm reaching out about a partnership / corporate event.",
+        "access": "AERIAL \u2014 Hi! I'd like to ask about accessible / adapted classes.",
+    },
+    "ar": {
+        "general": "AERIAL \u2014 \u0645\u0631\u062d\u0628\u0627\u064b \u0644\u0627 \u0645\u064a\u062f\u0648\u0632\u0627! \u0648\u0635\u0644\u062a \u0625\u0644\u064a\u0643\u0645 \u0639\u0628\u0631 \u0627\u0644\u0645\u0648\u0642\u0639.",
+        "classes": "AERIAL \u2014 \u0645\u0631\u062d\u0628\u0627\u064b! \u0623\u0648\u062f\u0651 \u062d\u062c\u0632 \u062d\u0635\u0629. \u0645\u0627 \u0627\u0644\u0645\u0648\u0627\u0639\u064a\u062f \u0627\u0644\u0645\u062a\u0627\u062d\u0629 \u0647\u0630\u0627 \u0627\u0644\u0623\u0633\u0628\u0648\u0639\u061f",
+        "kids": "AERIAL \u2014 \u0645\u0631\u062d\u0628\u0627\u064b! \u0623\u0648\u062f\u0651 \u0627\u0644\u0633\u0624\u0627\u0644 \u0639\u0646 \u062d\u0635\u0635 \u0627\u0644\u0623\u0637\u0641\u0627\u0644.",
+        "ayttc": "AYTTC \u2014 \u0645\u0631\u062d\u0628\u0627\u064b! \u0645\u0647\u062a\u0645\u0629 \u0628\u062a\u062f\u0631\u064a\u0628 \u0627\u0644\u0645\u0639\u0644\u0645\u064a\u0646 \u0644\u0634\u0647\u0631 \u064a\u0648\u0644\u064a\u0648 \u0662\u0660\u0662\u0666. \u0647\u0644 \u064a\u0645\u0643\u0646 \u0625\u0631\u0633\u0627\u0644 \u0627\u0644\u062a\u0641\u0627\u0635\u064a\u0644 \u0648\u0637\u0631\u064a\u0642\u0629 \u0627\u0644\u062d\u062c\u0632\u061f",
+        "retreat": "RETREAT \u2014 \u0645\u0631\u062d\u0628\u0627\u064b! \u0623\u0648\u062f\u0651 \u0645\u0639\u0631\u0641\u0629 \u0645\u0648\u0627\u0639\u064a\u062f \u0648\u0623\u0633\u0639\u0627\u0631 \u0627\u0644\u0631\u064a\u062a\u0631\u064a\u062a \u0627\u0644\u0642\u0627\u062f\u0645.",
+        "hammocks": "HAMMOCKS \u2014 \u0645\u0631\u062d\u0628\u0627\u064b! \u0623\u0648\u062f\u0651 \u0637\u0644\u0628 \u0623\u0631\u062c\u0648\u062d\u0629 \u0645\u0635\u0646\u0648\u0639\u0629 \u064a\u062f\u0648\u064a\u0627\u064b / \u0645\u0634\u0627\u0647\u062f\u0629 \u0627\u0644\u0643\u0627\u062a\u0627\u0644\u0648\u062c.",
+        "partner": "PARTNER \u2014 \u0645\u0631\u062d\u0628\u0627\u064b! \u0623\u062a\u0648\u0627\u0635\u0644 \u0628\u062e\u0635\u0648\u0635 \u0634\u0631\u0627\u0643\u0629 \u0623\u0648 \u0641\u0639\u0627\u0644\u064a\u0629 \u0644\u0644\u0634\u0631\u0643\u0627\u062a.",
+        "access": "AERIAL \u2014 \u0645\u0631\u062d\u0628\u0627\u064b! \u0623\u0648\u062f\u0651 \u0627\u0644\u0633\u0624\u0627\u0644 \u0639\u0646 \u0627\u0644\u062d\u0635\u0635 \u0627\u0644\u0645\u0647\u064a\u0651\u0623\u0629 \u0644\u0630\u0648\u064a \u0627\u0644\u0627\u062d\u062a\u064a\u0627\u062c\u0627\u062a.",
+    },
+}
+
+def wa_href(context, lang):
+    msgs = WA_MESSAGES.get(lang, WA_MESSAGES["en"])
+    msg = msgs.get(context, msgs["general"])
+    return "https://wa.me/" + WA_NUMBER + "?text=" + _quote(msg, safe="")
+
+_WA_CTA = _re.compile(r'(<a\b[^>]*?\bdata-wa="([a-z]+)"[^>]*?)href="#"')
+
+def _apply_wa_fallback(html, lang):
+    return _WA_CTA.sub(lambda m: m.group(1) + 'href="' + wa_href(m.group(2), lang) + '"', html)
+
+
+
 BRAND_EN = "La Medusa"
 SUB_EN = "The Aerialist Shala"
 BRAND_AR = "لا ميدوزا"
@@ -76,7 +117,7 @@ def page(slug, lang, title, desc, body, jsonld="", og_title=None, extra_scripts=
     account_aria = "حسابي" if is_ar else "My account"
     robots = '<meta name="robots" content="noindex, nofollow">' if noindex else ""
     footer = footer_html(lang, prefix)
-    return f'''<!DOCTYPE html>
+    html = f'''<!DOCTYPE html>
 <html lang="{lang}" dir="{dirattr}">
 <head>
 <meta charset="UTF-8">
@@ -127,6 +168,7 @@ def page(slug, lang, title, desc, body, jsonld="", og_title=None, extra_scripts=
 {extra_scripts}
 </body>
 </html>'''
+    return _apply_wa_fallback(html, lang)
 
 
 def footer_html(lang, prefix):

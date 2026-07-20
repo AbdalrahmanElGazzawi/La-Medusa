@@ -21,6 +21,10 @@
     waConfirm: "تأكيد عبر واتساب",
     egp: " ج.م",
     loading: "جارٍ تحميل الجدول…",
+    morning: "صباحية",
+    sunset: "غروب",
+    all: "كل الحصص",
+    noClasses: "لا توجد حصص متاحة للحجز حالياً — راسلينا على واتساب وسنساعدك.",
     errors: {
       SIGN_IN_REQUIRED: "سجّلي الدخول أولاً.",
       SLOT_UNAVAILABLE: "هذه الحصة لم تعد متاحة.",
@@ -49,6 +53,10 @@
     waConfirm: "Confirm on WhatsApp",
     egp: " EGP",
     loading: "Loading the schedule…",
+    morning: "Morning",
+    sunset: "Sunset",
+    all: "All classes",
+    noClasses: "No classes are open for booking right now — message us on WhatsApp and we\u2019ll help.",
     errors: {
       SIGN_IN_REQUIRED: "Please sign in first.",
       SLOT_UNAVAILABLE: "This class is no longer available.",
@@ -93,6 +101,9 @@
   function boot(db, session) {
     var today = new Date(); today.setHours(0, 0, 0, 0);
     var end = new Date(today); end.setDate(end.getDate() + DAYS_AHEAD - 1);
+    var myName = ((session.user.user_metadata && session.user.user_metadata.full_name) || "").split(" ")[0];
+    var filterCls = "";
+    var S = { slots: [], avail: {}, mineKeys: {} };
 
     function load() {
       $("book-days").innerHTML = "<p class='sec-lead'>" + T.loading + "</p>";
@@ -103,23 +114,45 @@
           .eq("user_id", session.user.id).eq("status", "confirmed").gte("class_date", iso(today))
           .order("class_date")
       ]).then(function (res) {
-        var slots = res[0].data || [];
-        var avail = {};
-        (res[1].data || []).forEach(function (a) { avail[a.slot_id + "|" + a.class_date] = a.booked; });
+        S.slots = res[0].data || [];
+        S.avail = {};
+        (res[1].data || []).forEach(function (a) { S.avail[a.slot_id + "|" + a.class_date] = a.booked; });
         var mine = res[2].data || [];
-        var mineKeys = {};
-        mine.forEach(function (b) { mineKeys[b.slot_id + "|" + b.class_date] = b.id; });
-        renderDays(slots, avail, mineKeys);
+        S.mineKeys = {};
+        mine.forEach(function (b) { S.mineKeys[b.slot_id + "|" + b.class_date] = b.id; });
+        buildFilters();
+        renderDays(S.slots, S.avail, S.mineKeys);
         renderMine(mine);
       });
     }
+
+    function buildFilters() {
+      var box = $("book-filters");
+      if (!box) return;
+      var names = {};
+      S.slots.forEach(function (s) { names[lang === "ar" ? s.class_ar : s.class_en] = s.class_en; });
+      var keys = Object.keys(names).sort();
+      if (keys.length < 2) { box.hidden = true; return; }
+      box.hidden = false;
+      box.innerHTML = '<button data-fc=""' + (filterCls ? "" : ' class="on"') + ">" + T.all + "</button>" +
+        keys.map(function (n) {
+          return '<button data-fc="' + esc(names[n]) + '"' + (filterCls === names[n] ? ' class="on"' : "") + ">" + esc(n) + "</button>";
+        }).join("");
+    }
+    document.addEventListener("click", function (e) {
+      var fb = e.target.closest("[data-fc]");
+      if (!fb) return;
+      filterCls = fb.getAttribute("data-fc");
+      buildFilters();
+      renderDays(S.slots, S.avail, S.mineKeys);
+    });
 
     function renderDays(slots, avail, mineKeys) {
       var html = "";
       for (var i = 0; i < DAYS_AHEAD; i++) {
         var d = new Date(today); d.setDate(d.getDate() + i);
         var dow = isodow(d), dateStr = iso(d);
-        var daySlots = slots.filter(function (s) { return s.day_of_week === dow; });
+        var daySlots = slots.filter(function (s) { return s.day_of_week === dow && (!filterCls || s.class_en === filterCls); });
         if (!daySlots.length) continue;
         var rows = daySlots.map(function (s) {
           var key = s.id + "|" + dateStr;
@@ -128,16 +161,17 @@
           var name = lang === "ar" ? s.class_ar : s.class_en;
           var lvl = lang === "ar" ? s.level_ar : s.level_en;
           var price = s.price_egp ? " · " + s.price_egp + T.egp : "";
+          var period = s.period === "morning" ? T.morning : T.sunset;
           var seat = left ? '<span class="seats">' + T.seatsLeft(left) + "</span>" : '<span class="seats seats-full">' + T.full + "</span>";
           var btn;
           if (mineKeys[key]) btn = '<span class="chip chip-lav">' + T.booked + "</span>";
           else if (!left) btn = '<button class="btn btn-ghost btn-sm" disabled>' + T.full + "</button>";
           else btn = '<button class="btn btn-primary btn-sm" data-book-slot="' + s.id + '" data-book-date="' + dateStr + '" data-cls="' + esc(name) + '" data-time="' + esc(s.time_label) + '">' + T.book + "</button>";
-          return '<div class="book-row"><div class="grow"><strong>' + esc(name) + "</strong><br><span class=\"meta\">" + esc(s.time_label) + (lvl ? " · " + esc(lvl) : "") + esc(price) + " · " + seat + "</span></div>" + btn + "</div>";
+          return '<div class="book-row"><div class="grow"><strong>' + esc(name) + "</strong><br><span class=\"meta\">" + esc(s.time_label) + " · " + period + (lvl ? " · " + esc(lvl) : "") + esc(price) + " · " + seat + "</span></div>" + btn + "</div>";
         }).join("");
         html += '<div class="book-day reveal in"><h3>' + fmtDate(d) + "</h3>" + rows + "</div>";
       }
-      $("book-days").innerHTML = html || "<p class='sec-lead'>" + T.noBookings + "</p>";
+      $("book-days").innerHTML = html || "<p class='sec-lead'>" + T.noClasses + "</p>";
     }
 
     function renderMine(mine) {
@@ -160,6 +194,7 @@
             if (r.error) { b.disabled = false; return alert(friendly(r.error)); }
             var d = new Date(b.getAttribute("data-book-date") + "T00:00:00");
             var msg = T.waMsg(b.getAttribute("data-cls"), fmtDate(d), b.getAttribute("data-time"));
+            if (myName) msg += " (" + myName + ")";
             var wa = "https://wa.me/" + cfg.whatsappNumber + "?text=" + encodeURIComponent(msg);
             $("book-success").innerHTML = '<div class="news-strip"><strong>' + T.successTitle + "</strong> — " + T.successBody +
               ' <a class="btn btn-primary btn-sm" target="_blank" rel="noopener" href="' + wa + '">' + T.waConfirm + "</a></div>";

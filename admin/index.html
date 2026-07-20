@@ -54,8 +54,8 @@
     <div id="panel-wrap" style="display:none">
       <div class="admin-tabs">
         <button class="on" data-p="sched">Schedule</button>
-        <button data-p="bookings">Bookings</button>
-        <button data-p="inbox">Inbox</button>
+        <button data-p="bookings">Bookings <span class="tab-badge" id="badge-bookings" hidden></span></button>
+        <button data-p="inbox">Inbox <span class="tab-badge" id="badge-inbox" hidden></span></button>
         <button data-p="events">Events &amp; news</button>
         <button data-p="photos">Photos</button>
         <button data-p="admins">Admins</button>
@@ -73,6 +73,13 @@
       </div>
 
       <div class="admin-panel" id="panel-bookings">
+        <div class="bk-filters">
+          <select id="bk-class"><option value="">All classes</option></select>
+          <input id="bk-date" type="date">
+          <label style="display:flex;align-items:center;gap:6px;font-size:13.5px"><input id="bk-past" type="checkbox"> Show past</label>
+          <button id="bk-clear" class="btn btn-ghost btn-sm" type="button">Clear</button>
+        </div>
+        <div id="bk-summary" class="note-soft" style="margin-bottom:12px;display:none"></div>
         <div style="overflow-x:auto">
         <table class="admin-table" style="min-width:820px">
           <thead><tr><th>Date</th><th>Class</th><th>Member</th><th>Email</th><th>Seats used</th></tr></thead>

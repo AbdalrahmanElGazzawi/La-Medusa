@@ -161,42 +161,85 @@
     });
 
     /* ----- bookings ----- */
-    function loadBookings() {
-      var today = new Date().toISOString().slice(0, 10);
-      db.from("bookings")
+    var BK = { rows: [] };
+    function fetchBookings() {
+      var q = db.from("bookings")
         .select("*, schedule_slots(class_en, time_label, capacity), profiles(full_name, email)")
-        .eq("status", "confirmed").gte("class_date", today)
-        .order("class_date").order("created_at")
-        .then(function (r) {
-          if (r.error) return alert(r.error.message);
-          if (!r.data.length) { $("bookings-body").innerHTML = '<tr><td colspan="5">No upcoming bookings yet.</td></tr>'; return; }
-          var counts = {};
-          r.data.forEach(function (b) { var k = b.slot_id + "|" + b.class_date; counts[k] = (counts[k] || 0) + 1; });
-          $("bookings-body").innerHTML = r.data.map(function (b) {
-            var s = b.schedule_slots || {}, p = b.profiles || {};
-            var k = b.slot_id + "|" + b.class_date;
-            return '<tr data-id="' + b.id + '">' +
-              "<td>" + esc(b.class_date) + "</td>" +
-              "<td>" + esc(s.class_en) + " · " + esc(s.time_label) + "</td>" +
-              "<td>" + esc(p.full_name || "—") + "</td>" +
-              "<td>" + esc(p.email || "—") + "</td>" +
-              "<td>" + counts[k] + " / " + (s.capacity || 8) +
-              ' <button class="btn btn-danger btn-sm" data-act="cancel-booking">Cancel</button></td></tr>';
-          }).join("");
-        });
+        .eq("status", "confirmed")
+        .order("class_date").order("created_at");
+      if (!$("bk-past").checked) q = q.gte("class_date", new Date().toISOString().slice(0, 10));
+      q.then(function (r) {
+        if (r.error) return alert(r.error.message);
+        BK.rows = r.data || [];
+        var today = new Date().toISOString().slice(0, 10);
+        var upcoming = BK.rows.filter(function (b) { return b.class_date >= today; }).length;
+        var badge = $("badge-bookings");
+        if (badge) { badge.textContent = upcoming; badge.hidden = !upcoming; }
+        var classes = {};
+        BK.rows.forEach(function (b) { var sl = b.schedule_slots || {}; if (sl.class_en) classes[sl.class_en] = 1; });
+        var sel = $("bk-class"), cur = sel.value;
+        sel.innerHTML = '<option value="">All classes</option>' + Object.keys(classes).sort().map(function (c) {
+          return "<option" + (c === cur ? " selected" : "") + ">" + esc(c) + "</option>";
+        }).join("");
+        renderBookings();
+      });
     }
+    function renderBookings() {
+      var cls = $("bk-class").value, date = $("bk-date").value;
+      var rows = BK.rows.filter(function (b) {
+        var sl = b.schedule_slots || {};
+        return (!cls || sl.class_en === cls) && (!date || b.class_date === date);
+      });
+      var sum = $("bk-summary");
+      if (!rows.length) {
+        $("bookings-body").innerHTML = '<tr><td colspan="5">No bookings match \u2014 members book at /book/, and their names appear here.</td></tr>';
+        sum.style.display = "none";
+        return;
+      }
+      var counts = {}, byDay = {};
+      rows.forEach(function (b) {
+        var k = b.slot_id + "|" + b.class_date;
+        counts[k] = (counts[k] || 0) + 1;
+        byDay[b.class_date] = (byDay[b.class_date] || 0) + 1;
+      });
+      sum.style.display = "";
+      sum.innerHTML = "Seats booked per day: " + Object.keys(byDay).sort().map(function (d) {
+        return "<strong>" + esc(d) + "</strong> " + byDay[d];
+      }).join(" \u00b7 ");
+      $("bookings-body").innerHTML = rows.map(function (b) {
+        var sl = b.schedule_slots || {}, pr = b.profiles || {};
+        var k = b.slot_id + "|" + b.class_date;
+        return '<tr data-id="' + b.id + '">' +
+          "<td>" + esc(b.class_date) + "</td>" +
+          "<td>" + esc(sl.class_en) + " \u00b7 " + esc(sl.time_label) + "</td>" +
+          "<td>" + esc(pr.full_name || "\u2014") + "</td>" +
+          "<td>" + esc(pr.email || "\u2014") + "</td>" +
+          "<td>" + counts[k] + " / " + (sl.capacity || 8) +
+          ' <button class="btn btn-danger btn-sm" data-act="cancel-booking">Cancel</button></td></tr>';
+      }).join("");
+    }
+    function loadBookings() { fetchBookings(); }
+    $("bk-class").addEventListener("change", renderBookings);
+    $("bk-date").addEventListener("change", renderBookings);
+    $("bk-past").addEventListener("change", fetchBookings);
+    $("bk-clear").addEventListener("click", function () {
+      $("bk-class").value = ""; $("bk-date").value = ""; $("bk-past").checked = false; fetchBookings();
+    });
     $("bookings-body").addEventListener("click", function (e) {
       var btn = e.target.closest('button[data-act="cancel-booking"]'); if (!btn) return;
       if (!confirm("Cancel this member's booking? (Let them know on WhatsApp too.)")) return;
       var id = btn.closest("tr").dataset.id;
       db.from("bookings").update({ status: "cancelled" }).eq("id", id)
-        .then(function (r) { r.error ? alert(r.error.message) : loadBookings(); });
+        .then(function (r) { r.error ? alert(r.error.message) : fetchBookings(); });
     });
 
     /* ----- inquiry inbox ----- */
     function loadInbox() {
       db.from("inquiries").select("*").order("created_at", { ascending: false }).limit(200).then(function (r) {
         if (r.error) return alert(r.error.message);
+        var nc = (r.data || []).filter(function (x) { return x.status === "new"; }).length;
+        var nb = $("badge-inbox");
+        if (nb) { nb.textContent = nc; nb.hidden = !nc; }
         if (!r.data.length) { $("inbox-body").innerHTML = '<tr><td colspan="6">No inquiries yet.</td></tr>'; return; }
         $("inbox-body").innerHTML = r.data.map(function (x) {
           var opts = ["new", "replied", "closed"].map(function (s) {

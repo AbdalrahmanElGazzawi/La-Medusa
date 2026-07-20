@@ -336,6 +336,24 @@ AYTTC_BODY = f'''
     <div class="note-soft mt-3">تتخرج المتدربات ومعهن دليل الوضعيات والممارسة، وشهادة تدريس من لا ميدوزا، وساعات تعليم مستمر مع معلّمتنا المعتمدة YACEP. اسألينا كيف يُحتسب التدريب في ملفك لدى Yoga Alliance.</div>
   </div>
 </section>
+
+{cocoon("#EAF6F4")}
+<section class="section section-tint-sea">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-kicker">حجز مكانك</span>
+      <h2>كيف يعمل العربون</h2>
+      <p class="sec-lead">العربون يحفظ مكانك في دفعة يوليو ٢٠٢٦. لا حاجة لبطاقة دفع إلكتروني \u2014 كل شيء يتم بالأدوات المتاحة لديك.</p>
+    </div>
+    <div class="card-grid reveal">
+      <article class="card"><div class="card-art" style="background:var(--seafoam)"></div><h3>١ \u00b7 راسلينا</h3><p>اسألي عن قيمة العربون وتفاصيل الدفع على واتساب \u2014 وسنرد بكل ما تحتاجينه.</p><a class="card-cta" data-wa="ayttc" href="#">ابدئي على واتساب \u2190</a></article>
+      <article class="card"><div class="card-art" style="background:var(--lavender)"></div><h3>٢ \u00b7 أرسلي العربون</h3><p>من داخل مصر: إنستاباي أو فودافون كاش. من الخارج: تحويل بنكي دولي (Wise خيار جيد). التفاصيل تصلك في الخطوة الأولى.</p></article>
+      <article class="card"><div class="card-art" style="background:var(--sand-2)"></div><h3>٣ \u00b7 مكانك محفوظ</h3><p>أرسلي لقطة شاشة للتحويل على واتساب وسنؤكد حجزك \u2014 ومكانك في الدفعة محفوظ.</p></article>
+    </div>
+    <div class="note-soft mt-3">الرسوم وخطط التقسيط وملف المعلومات الكامل تصلك ضمن محادثة واتساب \u2014 وكل سؤال مرحّب به.</div>
+  </div>
+</section>
+
 '''
 
 RETREATS_BODY = f'''
@@ -724,6 +742,7 @@ BOOK_BODY_AR = '''
       <div class="two-col">
         <div>
           <h3>الحصص القادمة</h3>
+          <div id="book-filters" class="book-filters" hidden></div>
           <div id="book-days" class="mt-1"></div>
         </div>
         <div>

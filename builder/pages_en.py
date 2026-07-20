@@ -349,6 +349,23 @@ AYTTC_BODY = f'''
     <div class="note-soft mt-3">Graduates leave with the Pose &amp; Practice Manual, a teaching certificate from La Medusa, and continuing-education hours with our YACEP lead teacher. Ask us how the training fits your Yoga Alliance profile.</div>
   </div>
 </section>
+
+{cocoon("#EAF6F4")}
+<section class="section section-tint-sea">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="sec-kicker">Reserving your place</span>
+      <h2>How the deposit works</h2>
+      <p class="sec-lead">A deposit holds your spot in the July 2026 cohort. No online card payment needed \u2014 it works with the tools you already have.</p>
+    </div>
+    <div class="card-grid reveal">
+      <article class="card"><div class="card-art" style="background:var(--seafoam)"></div><h3>1 \u00b7 Message us</h3><p>Ask for the deposit amount and payment details on WhatsApp \u2014 we reply with everything you need.</p><a class="card-cta" data-wa="ayttc" href="#">Start on WhatsApp \u2192</a></article>
+      <article class="card"><div class="card-art" style="background:var(--lavender)"></div><h3>2 \u00b7 Send the deposit</h3><p>From Egypt: InstaPay or Vodafone Cash. From abroad: international bank transfer (Wise works well). Details come in step 1.</p></article>
+      <article class="card"><div class="card-art" style="background:var(--sand-2)"></div><h3>3 \u00b7 You're in</h3><p>Send us the transfer screenshot on WhatsApp and we confirm your reservation \u2014 your place in the cohort is held.</p></article>
+    </div>
+    <div class="note-soft mt-3">Tuition, payment plans and the full information pack come with the WhatsApp conversation \u2014 every question welcome.</div>
+  </div>
+</section>
 '''
 
 RETREATS_BODY = f'''
@@ -744,6 +761,7 @@ BOOK_BODY = '''
       <div class="two-col">
         <div>
           <h3>Upcoming classes</h3>
+          <div id="book-filters" class="book-filters" hidden></div>
           <div id="book-days" class="mt-1"></div>
         </div>
         <div>
@@ -817,8 +835,8 @@ ADMIN_BODY = '''
     <div id="panel-wrap" style="display:none">
       <div class="admin-tabs">
         <button class="on" data-p="sched">Schedule</button>
-        <button data-p="bookings">Bookings</button>
-        <button data-p="inbox">Inbox</button>
+        <button data-p="bookings">Bookings <span class="tab-badge" id="badge-bookings" hidden></span></button>
+        <button data-p="inbox">Inbox <span class="tab-badge" id="badge-inbox" hidden></span></button>
         <button data-p="events">Events &amp; news</button>
         <button data-p="photos">Photos</button>
         <button data-p="admins">Admins</button>
@@ -836,6 +854,13 @@ ADMIN_BODY = '''
       </div>
 
       <div class="admin-panel" id="panel-bookings">
+        <div class="bk-filters">
+          <select id="bk-class"><option value="">All classes</option></select>
+          <input id="bk-date" type="date">
+          <label style="display:flex;align-items:center;gap:6px;font-size:13.5px"><input id="bk-past" type="checkbox"> Show past</label>
+          <button id="bk-clear" class="btn btn-ghost btn-sm" type="button">Clear</button>
+        </div>
+        <div id="bk-summary" class="note-soft" style="margin-bottom:12px;display:none"></div>
         <div style="overflow-x:auto">
         <table class="admin-table" style="min-width:820px">
           <thead><tr><th>Date</th><th>Class</th><th>Member</th><th>Email</th><th>Seats used</th></tr></thead>

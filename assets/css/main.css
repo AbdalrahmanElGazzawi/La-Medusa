@@ -483,3 +483,17 @@ table.schedule { width: 100%; border-collapse: collapse; min-width: 660px; font-
 .book-row .meta { font-size: 12.5px; color: var(--ink-faint); }
 .seats { color: var(--sea-deep, #2E7D74); font-weight: 500; }
 .seats-full { color: #8C2B2B; }
+
+/* ---- admin panel v2 ---- */
+.tab-badge { display: inline-block; min-width: 20px; padding: 1px 6px; border-radius: 999px; background: var(--coral, #E4756B); color: #fff; font-size: 11.5px; font-weight: 500; text-align: center; vertical-align: 1px; }
+.bk-filters { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 14px; }
+.bk-filters select, .bk-filters input[type="date"] { padding: 8px 10px; border: 1.5px solid var(--sea-tint-2); border-radius: 10px; font-family: var(--font-sans); font-size: 13.5px; }
+@media (max-width: 720px) {
+  .admin-tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+  .admin-table th, .admin-table td { padding: 7px 6px; font-size: 12.5px; }
+}
+
+/* ---- booking page filters ---- */
+.book-filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 18px; }
+.book-filters button { border: 1.5px solid var(--sea-tint-2); background: var(--white); color: var(--ink-soft); border-radius: 999px; padding: 7px 14px; font-size: 13px; font-family: var(--font-sans); cursor: pointer; }
+.book-filters button.on { background: var(--seafoam); border-color: var(--seafoam); color: #0F3D38; }
